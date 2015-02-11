@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Batch.h"
+#import "AddItemViewController.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <AddItemViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+/* Pointer to the batch record that will be displayed and manipulated */
+@property (strong, nonatomic) Batch *detailItem;
+/* Outlet to allow us to trigger segues from the storyboard */
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addItemButton;
 
 @end
 

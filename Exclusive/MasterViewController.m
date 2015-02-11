@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "Batch.h"
 
 @interface MasterViewController ()
 
@@ -15,38 +16,69 @@
 
 @implementation MasterViewController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
+/*
+ *   This function sets up the button for allowing the user to add a batch receipt
+ */
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG 2"]];
+    [self.tableView setBackgroundView:boxBackView];
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+/*
+ *  This function will prompt the user if they want to create a new batch receipt
+ *  for adding inventory. A UIAlert will appear to promp the user for the dollar
+ *  amount spent on this receipt and it will update the table view in its delegate method
+ */
+
+- (void)insertNewObject:(id)sender
+{
+    
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Create Purchase Receipt"
+                                                     message:@"Enter amount spent:"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles: nil];
+    
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    UITextField *amountTextField = [alert textFieldAtIndex:0];
+    
+    amountTextField.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    [alert addButtonWithTitle:@"Done"];
+    [alert show];
 }
 
-- (void)insertNewObject:(id)sender {
+/*
+ *  This function will create a new Batch model record with its creation time stamp
+ *  and the dollar amount specified on the UIAlertview.
+ *
+ *  @note: this method will get called on the UIAlertView's delegate method implementation
+ */
+
+- (void) createNewBatchWithPrice:(NSNumber *) amountSpent
+{
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-        
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-        
+    
+    Batch *batch = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    batch.date = [NSDate date];
+    batch.amount_spent = amountSpent;
+    
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -55,10 +87,15 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    
+    /* This block is responsible for obtaining the batch receipt record 
+       at the selected index path and pass it to the destination view
+       controller to display its contents */
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
+        Batch *batch = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setDetailItem:batch];
     }
 }
 
@@ -100,8 +137,16 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    
+    Batch *batch = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:batch.date
+                                                          dateStyle:NSDateFormatterLongStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    
+    NSString *amountString = [@" @ $" stringByAppendingString:[batch.amount_spent stringValue]];
+    
+    cell.textLabel.text = [dateString stringByAppendingString: amountString];
 }
 
 #pragma mark - Fetched results controller
@@ -114,14 +159,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Batch" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"batch_id" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -196,14 +241,14 @@
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+    {
+        if (buttonIndex == 1)
+        {
+            UITextField *amountTextField = [alertView textFieldAtIndex:0];
+            [self createNewBatchWithPrice: [NSNumber numberWithDouble:[amountTextField.text doubleValue]]];
+        }
+    }
 
 @end
