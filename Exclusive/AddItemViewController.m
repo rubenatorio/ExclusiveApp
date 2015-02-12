@@ -48,7 +48,21 @@
  */
 - (IBAction)dismissViewController:(id)sender
 {
-    [self.delegate didCreateNewItem:self.item];
+    // Validate User Input
+    NSString *category = [self.categorySegmentedControl titleForSegmentAtIndex:self.categorySegmentedControl.selectedSegmentIndex];
+    NSString *size = [self.sizeSegmentedControl titleForSegmentAtIndex:self.sizeSegmentedControl.selectedSegmentIndex];
+    NSString *location = [self.locationSegmentedControl titleForSegmentAtIndex:self.locationSegmentedControl.selectedSegmentIndex];
+    BOOL isNew = [self.isNewSwitch isOn];
+    NSDate *datePurchased = [self.datePicker date];
+    NSString *pricePaid = [self.costTextField text];
+    
+    if (pricePaid != nil || [pricePaid isEqualToString:@""])
+    {
+        self.item.is_new =[NSNumber numberWithBool: isNew];
+        
+        
+        [self.delegate didCreateNewItem:self.item];
+    }
 }
 
 #pragma mark UIImagePickerControllerDelegate

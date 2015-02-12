@@ -29,4 +29,12 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView * scroller;
 
+
+@property (weak, nonatomic) IBOutlet UISwitch *isNewSwitch;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *categorySegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sizeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *locationSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *costTextField;
+
 @end
