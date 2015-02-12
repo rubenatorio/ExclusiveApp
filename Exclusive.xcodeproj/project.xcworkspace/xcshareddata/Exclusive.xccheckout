@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>728A6AB3-F0D2-4090-B894-4E2541E4EE11</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Exclusive</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F26EC1D9C4E84689F3D137671C667CD96A33E6CC</key>
+		<string>https://github.com/rubenatorio/ExclusiveApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Exclusive.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F26EC1D9C4E84689F3D137671C667CD96A33E6CC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rubenatorio/ExclusiveApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F26EC1D9C4E84689F3D137671C667CD96A33E6CC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F26EC1D9C4E84689F3D137671C667CD96A33E6CC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ExclusiveApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
