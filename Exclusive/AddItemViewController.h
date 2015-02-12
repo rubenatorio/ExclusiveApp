@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 /* 
  *  This protocol will allow us to dismiss the modal view controllers
@@ -14,12 +15,18 @@
  */
 @protocol AddItemViewControllerDelegate <NSObject>
 
--(void) dismissViewController;
+-(void) didCreateNewItem:(Item *) theItem;
 
 @end
 
 @interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *itemPhoto;
+
+@property (weak, nonatomic) Item *item;
+
 @property (nonatomic, retain) id <AddItemViewControllerDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UIScrollView * scroller;
 
 @end

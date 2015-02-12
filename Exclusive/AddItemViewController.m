@@ -7,6 +7,7 @@
 //
 
 #import "AddItemViewController.h"
+#import "AppDelegate.h"
 
 @interface AddItemViewController ()
 
@@ -39,13 +40,30 @@
 }
 
 /*
+ *  Collect the data from the form and create an Item object and send it
+ *  back to the delegate.
  *  When the user is finished interacting with this conroller, inform the
  *  delegate so that appropriate action can be taken
  */
 - (IBAction)dismissViewController:(id)sender
 {
-    [self.delegate dismissViewController];
-    NSLog(@"Dismissing Modal view controller");
+    [self.delegate didCreateNewItem:self.item];
+}
+
+#pragma mark UIImagePickerControllerDelegate
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    [picker dismissViewControllerAnimated:YES
+                               completion:^{
+                                   self.itemPhoto.image = [info valueForKey:@"UIImagePickerControllerEditedImage"];
+    }];
+}
+
+-(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
 }
 
 @end

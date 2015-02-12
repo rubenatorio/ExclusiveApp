@@ -10,12 +10,15 @@
 #import "Batch.h"
 #import "AddItemViewController.h"
 
-@interface DetailViewController : UIViewController <AddItemViewControllerDelegate>
+@interface DetailViewController : UIViewController <NSFetchedResultsControllerDelegate,AddItemViewControllerDelegate>
 
 /* Pointer to the batch record that will be displayed and manipulated */
 @property (strong, nonatomic) Batch *detailItem;
 /* Outlet to allow us to trigger segues from the storyboard */
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addItemButton;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 
