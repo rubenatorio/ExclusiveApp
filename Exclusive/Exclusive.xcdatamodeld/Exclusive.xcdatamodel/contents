@@ -21,13 +21,12 @@
         <attribute name="is_new" optional="YES" attributeType="Boolean" minValueString="0" defaultValueString="YES" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price_paid" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="product_id" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="String" minValueString="0" syncable="YES"/>
         <relationship name="batch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Batch" inverseName="items" inverseEntity="Batch" syncable="YES"/>
     </entity>
     <elements>
         <element name="Batch" positionX="-2" positionY="-94" width="128" height="118"/>
         <element name="Event" positionX="70" positionY="144" width="128" height="58"/>
-        <element name="Item" positionX="-243" positionY="-28" width="153" height="193"/>
+        <element name="Item" positionX="-243" positionY="-28" width="153" height="178"/>
     </elements>
 </model>

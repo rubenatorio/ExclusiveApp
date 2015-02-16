@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "AddItemViewController.h"
 #import "AppDelegate.h"
+#import "DetailCollectionViewCell.h"
 
 @interface DetailViewController ()
 
@@ -42,6 +43,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Register UICollectionViewCell Styles
+    //UINib *cellNib = [UINib nibWithNibName:@"DetailCollectionViewCell" bundle:nil];
+    
+    //[self.collectionView registerClass:[DetailCollectionViewCell class] forCellWithReuseIdentifier:@"DetailCell"];
 }
 
 #pragma mark - Fetched results controller
@@ -61,7 +67,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"product_id" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"price_paid" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -113,7 +119,9 @@
 
 -(void) didCreateNewItem:(Item *)theItem
 {
+    theItem.batch = self.detailItem;
     
+    NSLog(@"%@",[theItem description]);
     //TODO ADD ITEM TO BATCH
     [self.detailItem addItemsObject:theItem];
     
@@ -127,5 +135,40 @@
      }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark UICollectionViewDataSource
+
+-(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [[self.detailItem items] count];
+}
+
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell"
+                                                                            forIndexPath:indexPath];
+    
+    
+    return cell;
+}
+
+#pragma mark UICollectionViewDelegate
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
 
 @end

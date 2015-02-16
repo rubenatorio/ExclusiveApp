@@ -55,11 +55,17 @@
     BOOL isNew = [self.isNewSwitch isOn];
     NSDate *datePurchased = [self.datePicker date];
     NSString *pricePaid = [self.costTextField text];
+    NSData *imageData = UIImagePNGRepresentation(self.itemPhoto.image);
     
-    if (pricePaid != nil || [pricePaid isEqualToString:@""])
+    if (self.costTextField.text.length != 0)
     {
-        self.item.is_new =[NSNumber numberWithBool: isNew];
-        
+        self.item.is_new = [NSNumber numberWithBool: isNew];
+        self.item.size = size;
+        self.item.location = location;
+        self.item.price_paid = [NSNumber numberWithDouble:[pricePaid doubleValue]];
+        self.item.date_purchased = datePurchased;
+        self.item.category = category;
+        self.item.image = imageData;
         
         [self.delegate didCreateNewItem:self.item];
     }
