@@ -22,6 +22,13 @@
 		E01BC01C1A8B27AD00D1568A /* Exclusive.@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E01BC01B1A8B27AD00D1568A /* Exclusive.@2x.png */; };
 		E01BC01E1A8BF91000D1568A /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E01BC01D1A8BF91000D1568A /* photo@2x.png */; };
 		E0447C581A9290D9008AE13B /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C561A9290D9008AE13B /* DetailCollectionViewCell.m */; };
+		E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C5C1A93CAE4008AE13B /* AddItemFormViewController.m */; };
+		E0447C5F1A93CAE4008AE13B /* AddItemFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0447C5D1A93CAE4008AE13B /* AddItemFormViewController.xib */; };
+		E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C641A93DC52008AE13B /* AddItemForm2ViewController.m */; };
+		E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0447C651A93DC52008AE13B /* AddItemForm2ViewController.xib */; };
+		E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C691A93DEBD008AE13B /* FormViewControllerPrototype.m */; };
+		E0447C701A93E43D008AE13B /* AddItemForm3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C6E1A93E43D008AE13B /* AddItemForm3ViewController.m */; };
+		E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0447C6F1A93E43D008AE13B /* AddItemForm3ViewController.xib */; };
 		E074ACF81A8824C700CC037F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E074ACF71A8824C700CC037F /* main.m */; };
 		E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E074ACFA1A8824C700CC037F /* AppDelegate.m */; };
 		E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E074ACFC1A8824C700CC037F /* Exclusive.xcdatamodeld */; };
@@ -64,6 +71,17 @@
 		E01BC01D1A8BF91000D1568A /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo@2x.png"; sourceTree = "<group>"; };
 		E0447C551A9290D9008AE13B /* DetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionViewCell.h; sourceTree = "<group>"; };
 		E0447C561A9290D9008AE13B /* DetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionViewCell.m; sourceTree = "<group>"; };
+		E0447C5B1A93CAE4008AE13B /* AddItemFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemFormViewController.h; sourceTree = "<group>"; };
+		E0447C5C1A93CAE4008AE13B /* AddItemFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemFormViewController.m; sourceTree = "<group>"; };
+		E0447C5D1A93CAE4008AE13B /* AddItemFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemFormViewController.xib; sourceTree = "<group>"; };
+		E0447C631A93DC52008AE13B /* AddItemForm2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemForm2ViewController.h; sourceTree = "<group>"; };
+		E0447C641A93DC52008AE13B /* AddItemForm2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemForm2ViewController.m; sourceTree = "<group>"; };
+		E0447C651A93DC52008AE13B /* AddItemForm2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemForm2ViewController.xib; sourceTree = "<group>"; };
+		E0447C681A93DEBD008AE13B /* FormViewControllerPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewControllerPrototype.h; sourceTree = "<group>"; };
+		E0447C691A93DEBD008AE13B /* FormViewControllerPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewControllerPrototype.m; sourceTree = "<group>"; };
+		E0447C6D1A93E43D008AE13B /* AddItemForm3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemForm3ViewController.h; sourceTree = "<group>"; };
+		E0447C6E1A93E43D008AE13B /* AddItemForm3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemForm3ViewController.m; sourceTree = "<group>"; };
+		E0447C6F1A93E43D008AE13B /* AddItemForm3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemForm3ViewController.xib; sourceTree = "<group>"; };
 		E074ACF21A8824C700CC037F /* Exclusive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exclusive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E074ACF61A8824C700CC037F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E074ACF71A8824C700CC037F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +146,40 @@
 				E0447C561A9290D9008AE13B /* DetailCollectionViewCell.m */,
 			);
 			name = UICollectionViewCells;
+			sourceTree = "<group>";
+		};
+		E0447C5A1A93CA94008AE13B /* AddItemViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0447C5B1A93CAE4008AE13B /* AddItemFormViewController.h */,
+				E0447C5C1A93CAE4008AE13B /* AddItemFormViewController.m */,
+				E0447C631A93DC52008AE13B /* AddItemForm2ViewController.h */,
+				E0447C641A93DC52008AE13B /* AddItemForm2ViewController.m */,
+				E0447C6D1A93E43D008AE13B /* AddItemForm3ViewController.h */,
+				E0447C6E1A93E43D008AE13B /* AddItemForm3ViewController.m */,
+				E0447C6C1A93E3FA008AE13B /* PROTOTYPE */,
+				E0447C6B1A93E3EB008AE13B /* NIBS */,
+			);
+			name = AddItemViewControllers;
+			sourceTree = "<group>";
+		};
+		E0447C6B1A93E3EB008AE13B /* NIBS */ = {
+			isa = PBXGroup;
+			children = (
+				E0447C6F1A93E43D008AE13B /* AddItemForm3ViewController.xib */,
+				E0447C5D1A93CAE4008AE13B /* AddItemFormViewController.xib */,
+				E0447C651A93DC52008AE13B /* AddItemForm2ViewController.xib */,
+			);
+			name = NIBS;
+			sourceTree = "<group>";
+		};
+		E0447C6C1A93E3FA008AE13B /* PROTOTYPE */ = {
+			isa = PBXGroup;
+			children = (
+				E0447C681A93DEBD008AE13B /* FormViewControllerPrototype.h */,
+				E0447C691A93DEBD008AE13B /* FormViewControllerPrototype.m */,
+			);
+			name = PROTOTYPE;
 			sourceTree = "<group>";
 		};
 		E074ACE91A8824C700CC037F = {
@@ -212,6 +264,7 @@
 		E074AD8A1A8858E800CC037F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E0447C5A1A93CA94008AE13B /* AddItemViewControllers */,
 				E074ACFF1A8824C700CC037F /* MasterViewController.h */,
 				E074AD001A8824C700CC037F /* MasterViewController.m */,
 				E074AD021A8824C700CC037F /* DetailViewController.h */,
@@ -321,11 +374,14 @@
 				E01BC0021A8AFE1500D1568A /* Home Screen.png in Resources */,
 				E074AD071A8824C700CC037F /* Main.storyboard in Resources */,
 				E01BC0161A8B19A300D1568A /* T-Shirts@2x.png in Resources */,
+				E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */,
+				E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */,
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
 				E01BC0141A8B19A300D1568A /* Menu@2x.png in Resources */,
 				E01BC0151A8B19A300D1568A /* Search@2x.png in Resources */,
 				E01BC0101A8B19A300D1568A /* BG 2@2x.png in Resources */,
 				E01BC01E1A8BF91000D1568A /* photo@2x.png in Resources */,
+				E0447C5F1A93CAE4008AE13B /* AddItemFormViewController.xib in Resources */,
 				E074AD0C1A8824C700CC037F /* LaunchScreen.xib in Resources */,
 				E01BC0131A8B19A300D1568A /* Hero@2x.png in Resources */,
 				E074AD091A8824C700CC037F /* Images.xcassets in Resources */,
@@ -349,10 +405,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */,
 				E074AD971A8872AE00CC037F /* Item.m in Sources */,
+				E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
+				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
+				E0447C701A93E43D008AE13B /* AddItemForm3ViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
 				E074AD9A1A8872AF00CC037F /* Batch.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Item.h"
+#import "FormViewControllerPrototype.h"
 
 /* 
  *  This protocol will allow us to dismiss the modal view controllers
@@ -39,7 +40,9 @@
  * This class also has a delegate member which must comply with the <AddItemViewControllerDelegate> 
  * to message it that the Item object was succesfully populated and can be saved in the context.
  */
-@interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate,
+                                                    UIPageViewControllerDataSource, FormViewControllerDelegate>
+
 
 /* Used for momentarily displaying the image of the item being added */
 @property (weak, nonatomic) IBOutlet UIImageView *itemPhoto;
@@ -47,6 +50,10 @@
 @property (weak, nonatomic) Item *item;
 /* Delegate to inform when we are done collecting data and the Item object has been populated */
 @property (nonatomic, retain) id <AddItemViewControllerDelegate> delegate;
+
+@property(strong, nonatomic) IBOutlet UIPageViewController *pageViewController;
+
+@property(strong, nonatomic) NSArray *viewControllers;
 
 
 // TODO:

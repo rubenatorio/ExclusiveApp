@@ -8,6 +8,9 @@
 
 #import "AddItemViewController.h"
 #import "AppDelegate.h"
+#import "AddItemFormViewController.h"
+#import "AddItemForm2ViewController.h"
+#import "AddItemForm3ViewController.h"
 
 @interface AddItemViewController ()
 
@@ -15,15 +18,42 @@
 
 @implementation AddItemViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self.scroller setContentSize:CGSizeMake(350, 1200)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) createPageViewController
+{
+    
+    AddItemFormViewController *vc1 = [[AddItemFormViewController alloc] initWithNibName:@"AddItemFormViewController"
+                                                                                 bundle:nil];
+    AddItemForm2ViewController *vc2 = [[AddItemForm2ViewController alloc] initWithNibName:@"AddItemForm2ViewController"
+                                                                                   bundle:nil];
+    AddItemForm3ViewController *vc3 = [[AddItemForm3ViewController alloc] initWithNibName:@"AddItemForm3ViewController"
+                                                                                   bundle:nil];
+    
+    vc1.index = 0;
+    vc2.index = 1;
+    vc3.index = 2;
+    
+    vc1.delegate = self;
+    vc2.delegate = self;
+    vc3.delegate = self;
+
+    
+    self.viewControllers = [NSArray arrayWithObjects:vc1,vc2,vc3,nil];
+    
+    NSLog(@"%@", [self.viewControllers description]);
+
+    
+    [self.pageViewController setViewControllers:@[vc1]
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:NO
+                                     completion: nil];
+    
+    self.pageViewController.dataSource = self;
+    
 }
 
 /*
@@ -66,8 +96,19 @@
         self.item.date_purchased = datePurchased;
         self.item.category = category;
         self.item.image = imageData;
+        self.item.brand = @"American Eagle";
         
         [self.delegate didCreateNewItem:self.item];
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"embed"])
+    {
+        self.pageViewController = (UIPageViewController*) [segue destinationViewController];
+        
+        [self createPageViewController];
     }
 }
 
@@ -86,6 +127,51 @@
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     
+}
+
+#pragma mark UIPageViewControllerDataSource methods
+
+-(UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    FormViewControllerPrototype *vc = (FormViewControllerPrototype *) viewController;
+    
+    switch (vc.index)
+    {
+        case 0:
+            return [self.viewControllers objectAtIndex:1];
+            break;
+        case 1:
+            return [self.viewControllers objectAtIndex:2];
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+-(UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    FormViewControllerPrototype *vc = (FormViewControllerPrototype *) viewController;
+    
+    switch (vc.index)
+    {
+        case 2:
+            return [self.viewControllers objectAtIndex:1];
+            break;
+        case 1:
+            return [self.viewControllers objectAtIndex:0];
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+#pragma mark FormViewControllerDelegate methods
+
+-(void) didObtainDataFromUser:(NSDictionary *)dictionary
+{
+    //TODO will replace dismissViewController method
 }
 
 @end

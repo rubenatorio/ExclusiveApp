@@ -39,6 +39,61 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateLabels];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+
+}
+
+-(void) updateLabels
+{
+    double itemsPrice;
+    
+    for (Item * theItem in [[self.detailItem items] allObjects])
+    {
+        itemsPrice += [theItem.price_paid doubleValue];
+    }
+    
+    self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu Items", (unsigned long)[self.detailItem.items count]];
+    self.itemsValueLabel.text = [NSString stringWithFormat:@"$%.2f",itemsPrice ];
+}
+
+- (IBAction)closeReceipt:(id)sender
+{
+    
+}
+
+#pragma mark AddItemViewControllerDelegate
+
+-(void) didCreateNewItem:(Item *)theItem
+{
+    // The Item class has a property for setting
+    // the relationship between the item and
+    // the batch on which it was purchased
+    theItem.batch = self.detailItem;
+    
+    // DEBUG
+    NSLog(@"%@",[theItem description]);
+    
+    
+    // Add the item pointer to the batch which owns it
+    [self.detailItem addItemsObject:theItem];
+    
+    NSLog(@"Batch has: %lu items", (unsigned long)[[self.detailItem items] count]);
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    [self.collectionView reloadData];
+    [self updateLabels];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Fetched results controller
@@ -111,33 +166,6 @@
     }
 }
 
-#pragma mark AddItemViewControllerDelegate
-
--(void) didCreateNewItem:(Item *)theItem
-{
-    // The Item class has a property for setting
-    // the relationship between the item and
-    // the batch on which it was purchased
-    theItem.batch = self.detailItem;
-    
-    // DEBUG
-    NSLog(@"%@",[theItem description]);
-    
-    
-    // Add the item pointer to the batch which owns it
-    [self.detailItem addItemsObject:theItem];
-    
-    NSLog(@"Batch has: %lu items", (unsigned long)[[self.detailItem items] count]);
-    
-    // Save the context.
-     NSError *error = nil;
-     if (![self.managedObjectContext save:&error]) {
-         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-         abort();
-     }
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 #pragma mark UICollectionViewDataSource
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -154,8 +182,16 @@
 {
     // The main storyboard contains a prototype cell class (See DetailCell class)
     
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell"
+    DetailCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell"
                                                                             forIndexPath:indexPath];
+    
+    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
+    
+    cell.brandLabel.text = theItem.brand;
+    cell.sizeLabel.text = theItem.size;
+    cell.priceLabel.text = [NSString stringWithFormat:@"$%@", theItem.price_paid];
+    cell.imageView.image = [UIImage imageWithData:theItem.image];
+    cell.imageView.contentMode  = UIViewContentModeScaleAspectFit;
     
     return cell;
 }
@@ -164,7 +200,8 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        //TODO
+    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
+    NSLog(@"%@",[theItem description]);
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath

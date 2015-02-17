@@ -38,5 +38,9 @@
 /* Main Context where the objects will reside */
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *itemsValueLabel;
+
+
 @end
 
