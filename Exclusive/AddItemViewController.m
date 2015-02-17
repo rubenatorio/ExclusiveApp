@@ -78,6 +78,7 @@
     
     [picker dismissViewControllerAnimated:YES
                                completion:^{
+                                   // Obtain the image from the controller and get a handle for it so that it can be saved
                                    self.itemPhoto.image = [info valueForKey:@"UIImagePickerControllerEditedImage"];
     }];
 }

@@ -10,6 +10,20 @@
 #import "Batch.h"
 #import "AddItemViewController.h"
 
+/* 
+ *  The purpose of this view controller is to allow an authorized user to add a batch item.
+ *  A batch represents a receipt for a speific amount spent on inventory.
+ *
+ *  This View controller is responsible for presenting the Item records and its important information
+ *  to the user. as the user is itemizing every item that was purchased.
+ *
+ *  The view contorller shold also implement a method for being able to add an item to the current batch
+ *  to help obtain a full itemized list of all that was purchased on that receipt.
+ *
+ *  A modal view controller will be displayed to prompt the user for more detailed information about a 
+ *  specific item being added to the batch.
+ */
+
 @interface DetailViewController : UIViewController <NSFetchedResultsControllerDelegate,AddItemViewControllerDelegate,
                                                     UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -17,10 +31,11 @@
 @property (strong, nonatomic) Batch *detailItem;
 /* Outlet to allow us to trigger segues from the storyboard */
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addItemButton;
-
+/* This outlet property will be used to present the Batch items data to the user */
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-
+/* Used for obtaining Item records from the batch */
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+/* Main Context where the objects will reside */
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

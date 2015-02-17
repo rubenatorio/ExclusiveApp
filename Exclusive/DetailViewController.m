@@ -22,8 +22,13 @@
 /*
  *  This function allows us to set the batch object
  *  that we will use to display detailed data
+ *
+ *  @params:
+ *  
+ *  newDetailItem: a batch object used for creating new purchased
+ *                 inventory items on the batch.
  */
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDetailItem:(Batch*)newDetailItem
 {
     if (_detailItem != newDetailItem)
     {
@@ -31,23 +36,9 @@
     }
 }
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-    if (self.detailItem)
-    {
-        
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Register UICollectionViewCell Styles
-    //UINib *cellNib = [UINib nibWithNibName:@"DetailCollectionViewCell" bundle:nil];
-    
-    //[self.collectionView registerClass:[DetailCollectionViewCell class] forCellWithReuseIdentifier:@"DetailCell"];
 }
 
 #pragma mark - Fetched results controller
@@ -89,6 +80,19 @@
     return _fetchedResultsController;
 }
 
+- (Item *)createItemRecord {
+    //Create item record to be added and modified
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    self.managedObjectContext = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    
+    Item *theItem = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:self.managedObjectContext];
+    return theItem;
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -99,19 +103,11 @@
     {
         AddItemViewController *vc = (AddItemViewController*)[segue destinationViewController];
         
+        // Receive updates for when the user has finished populating the item to add
         vc.delegate = self;
         
-        //Create item record to be added and modified
-        
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-                                    
-        self.managedObjectContext = [appDelegate managedObjectContext];
-                                    
-        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-        
-        Item *theItem = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:self.managedObjectContext];
-        
-        vc.item = theItem;
+        // Create new managed object for the user to populate
+        vc.item = [self createItemRecord];
     }
 }
 
@@ -119,10 +115,16 @@
 
 -(void) didCreateNewItem:(Item *)theItem
 {
+    // The Item class has a property for setting
+    // the relationship between the item and
+    // the batch on which it was purchased
     theItem.batch = self.detailItem;
     
+    // DEBUG
     NSLog(@"%@",[theItem description]);
-    //TODO ADD ITEM TO BATCH
+    
+    
+    // Add the item pointer to the batch which owns it
     [self.detailItem addItemsObject:theItem];
     
     NSLog(@"Batch has: %lu items", (unsigned long)[[self.detailItem items] count]);
@@ -150,9 +152,10 @@
 
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // The main storyboard contains a prototype cell class (See DetailCell class)
+    
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell"
                                                                             forIndexPath:indexPath];
-    
     
     return cell;
 }
@@ -161,12 +164,12 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+        //TODO
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+        //TODO
 }
 
 
