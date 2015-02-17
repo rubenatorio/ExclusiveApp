@@ -19,7 +19,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Place of Purchase?" textAlignment="center" minimumFontSize="17" background="textViewRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="VGy-38-mZS">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where was it purchased?" textAlignment="center" minimumFontSize="17" background="textViewRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="VGy-38-mZS">
                     <rect key="frame" x="102" y="88" width="171" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
