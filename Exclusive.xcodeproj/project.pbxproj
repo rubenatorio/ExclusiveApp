@@ -53,6 +53,7 @@
 		E913BD731A93F2830030C8C8 /* Off.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD721A93F2830030C8C8 /* Off.png */; };
 		E913BD751A93F2AA0030C8C8 /* On.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD741A93F2AA0030C8C8 /* On.png */; };
 		E913BD771A93F4B90030C8C8 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD761A93F4B90030C8C8 /* Checked Active.png */; };
+		E913BD791A93F7B20030C8C8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD781A93F7B20030C8C8 /* camera@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		E913BD721A93F2830030C8C8 /* Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Off.png; sourceTree = "<group>"; };
 		E913BD741A93F2AA0030C8C8 /* On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = On.png; sourceTree = "<group>"; };
 		E913BD761A93F4B90030C8C8 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
+		E913BD781A93F7B20030C8C8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		E01BC0181A8B19AD00D1568A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E913BD781A93F7B20030C8C8 /* camera@2x.png */,
 				E913BD761A93F4B90030C8C8 /* Checked Active.png */,
 				E913BD721A93F2830030C8C8 /* Off.png */,
 				E913BD741A93F2AA0030C8C8 /* On.png */,
@@ -432,6 +435,7 @@
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
 				E913BD5D1A93EAB00030C8C8 /* Page1ViewController.xib in Resources */,
 				E913BD751A93F2AA0030C8C8 /* On.png in Resources */,
+				E913BD791A93F7B20030C8C8 /* camera@2x.png in Resources */,
 				E913BD621A93EABD0030C8C8 /* Page2ViewController.xib in Resources */,
 				E01BC0141A8B19A300D1568A /* Menu@2x.png in Resources */,
 				E01BC0151A8B19A300D1568A /* Search@2x.png in Resources */,
