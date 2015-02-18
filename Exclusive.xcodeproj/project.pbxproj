@@ -54,6 +54,27 @@
 		E913BD751A93F2AA0030C8C8 /* On.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD741A93F2AA0030C8C8 /* On.png */; };
 		E913BD771A93F4B90030C8C8 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD761A93F4B90030C8C8 /* Checked Active.png */; };
 		E913BD791A93F7B20030C8C8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD781A93F7B20030C8C8 /* camera@2x.png */; };
+=======
+		E968E2EB1A9412D900E1F64C /* AddItemForm2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2D11A9412D800E1F64C /* AddItemForm2ViewController.m */; };
+		E968E2EC1A9412D900E1F64C /* AddItemForm2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E968E2D21A9412D900E1F64C /* AddItemForm2ViewController.xib */; };
+		E968E2ED1A9412D900E1F64C /* AddItemForm3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2D41A9412D900E1F64C /* AddItemForm3ViewController.m */; };
+		E968E2EE1A9412D900E1F64C /* AddItemForm3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E968E2D51A9412D900E1F64C /* AddItemForm3ViewController.xib */; };
+		E968E2EF1A9412D900E1F64C /* AddItemFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2D71A9412D900E1F64C /* AddItemFormViewController.m */; };
+		E968E2F01A9412D900E1F64C /* AddItemFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E968E2D81A9412D900E1F64C /* AddItemFormViewController.xib */; };
+		E968E2F11A9412D900E1F64C /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2D91A9412D900E1F64C /* Checked Active.png */; };
+		E968E2F21A9412D900E1F64C /* Checked Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2DA1A9412D900E1F64C /* Checked Inactive.png */; };
+		E968E2F31A9412D900E1F64C /* FormViewControllerPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2DC1A9412D900E1F64C /* FormViewControllerPrototype.m */; };
+		E968E2F41A9412D900E1F64C /* maleOrFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2DD1A9412D900E1F64C /* maleOrFemale.png */; };
+		E968E2F51A9412D900E1F64C /* Off.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2DE1A9412D900E1F64C /* Off.png */; };
+		E968E2F61A9412D900E1F64C /* On.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2DF1A9412D900E1F64C /* On.png */; };
+		E968E2F71A9412D900E1F64C /* Page1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2E11A9412D900E1F64C /* Page1ViewController.m */; };
+		E968E2F81A9412D900E1F64C /* Page1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E968E2E21A9412D900E1F64C /* Page1ViewController.xib */; };
+		E968E2F91A9412D900E1F64C /* Page2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2E41A9412D900E1F64C /* Page2ViewController.m */; };
+		E968E2FA1A9412D900E1F64C /* Page2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E968E2E51A9412D900E1F64C /* Page2ViewController.xib */; };
+		E968E2FB1A9412D900E1F64C /* Page3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E968E2E71A9412D900E1F64C /* Page3ViewController.m */; };
+		E968E2FC1A9412D900E1F64C /* Page3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E968E2E81A9412D900E1F64C /* Page3ViewController.xib */; };
+		E968E2FD1A9412D900E1F64C /* sizeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2E91A9412D900E1F64C /* sizeButton.png */; };
+		E968E2FE1A9412D900E1F64C /* textViewRect.png in Resources */ = {isa = PBXBuildFile; fileRef = E968E2EA1A9412D900E1F64C /* textViewRect.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +137,7 @@
 		E074AD961A8872AE00CC037F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		E074AD981A8872AF00CC037F /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
 		E074AD991A8872AF00CC037F /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		E913BD591A93EAB00030C8C8 /* Page1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page1ViewController.h; sourceTree = "<group>"; };
 		E913BD5A1A93EAB00030C8C8 /* Page1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page1ViewController.m; sourceTree = "<group>"; };
 		E913BD5B1A93EAB00030C8C8 /* Page1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page1ViewController.xib; sourceTree = "<group>"; };
@@ -133,6 +155,33 @@
 		E913BD741A93F2AA0030C8C8 /* On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = On.png; sourceTree = "<group>"; };
 		E913BD761A93F4B90030C8C8 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
 		E913BD781A93F7B20030C8C8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		E968E2D01A9412D800E1F64C /* AddItemForm2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemForm2ViewController.h; sourceTree = "<group>"; };
+		E968E2D11A9412D800E1F64C /* AddItemForm2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemForm2ViewController.m; sourceTree = "<group>"; };
+		E968E2D21A9412D900E1F64C /* AddItemForm2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemForm2ViewController.xib; sourceTree = "<group>"; };
+		E968E2D31A9412D900E1F64C /* AddItemForm3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemForm3ViewController.h; sourceTree = "<group>"; };
+		E968E2D41A9412D900E1F64C /* AddItemForm3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemForm3ViewController.m; sourceTree = "<group>"; };
+		E968E2D51A9412D900E1F64C /* AddItemForm3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemForm3ViewController.xib; sourceTree = "<group>"; };
+		E968E2D61A9412D900E1F64C /* AddItemFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemFormViewController.h; sourceTree = "<group>"; };
+		E968E2D71A9412D900E1F64C /* AddItemFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemFormViewController.m; sourceTree = "<group>"; };
+		E968E2D81A9412D900E1F64C /* AddItemFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemFormViewController.xib; sourceTree = "<group>"; };
+		E968E2D91A9412D900E1F64C /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
+		E968E2DA1A9412D900E1F64C /* Checked Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Inactive.png"; sourceTree = "<group>"; };
+		E968E2DB1A9412D900E1F64C /* FormViewControllerPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewControllerPrototype.h; sourceTree = "<group>"; };
+		E968E2DC1A9412D900E1F64C /* FormViewControllerPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewControllerPrototype.m; sourceTree = "<group>"; };
+		E968E2DD1A9412D900E1F64C /* maleOrFemale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleOrFemale.png; sourceTree = "<group>"; };
+		E968E2DE1A9412D900E1F64C /* Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Off.png; sourceTree = "<group>"; };
+		E968E2DF1A9412D900E1F64C /* On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = On.png; sourceTree = "<group>"; };
+		E968E2E01A9412D900E1F64C /* Page1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page1ViewController.h; sourceTree = "<group>"; };
+		E968E2E11A9412D900E1F64C /* Page1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page1ViewController.m; sourceTree = "<group>"; };
+		E968E2E21A9412D900E1F64C /* Page1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page1ViewController.xib; sourceTree = "<group>"; };
+		E968E2E31A9412D900E1F64C /* Page2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page2ViewController.h; sourceTree = "<group>"; };
+		E968E2E41A9412D900E1F64C /* Page2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page2ViewController.m; sourceTree = "<group>"; };
+		E968E2E51A9412D900E1F64C /* Page2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page2ViewController.xib; sourceTree = "<group>"; };
+		E968E2E61A9412D900E1F64C /* Page3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page3ViewController.h; sourceTree = "<group>"; };
+		E968E2E71A9412D900E1F64C /* Page3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page3ViewController.m; sourceTree = "<group>"; };
+		E968E2E81A9412D900E1F64C /* Page3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page3ViewController.xib; sourceTree = "<group>"; };
+		E968E2E91A9412D900E1F64C /* sizeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizeButton.png; sourceTree = "<group>"; };
+		E968E2EA1A9412D900E1F64C /* textViewRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textViewRect.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +213,14 @@
 				E913BD6E1A93EEDC0030C8C8 /* maleOrFemale.png */,
 				E913BD6C1A93EE240030C8C8 /* textViewRect.png */,
 				E913BD6A1A93EC600030C8C8 /* sizeButton.png */,
+				E968E2D91A9412D900E1F64C /* Checked Active.png */,
+				E968E2DA1A9412D900E1F64C /* Checked Inactive.png */,
+				E968E2DD1A9412D900E1F64C /* maleOrFemale.png */,
+				E968E2DE1A9412D900E1F64C /* Off.png */,
+				E968E2DF1A9412D900E1F64C /* On.png */,
+				E968E2E91A9412D900E1F64C /* sizeButton.png */,
+				E968E2EA1A9412D900E1F64C /* textViewRect.png */,
+>>>>>>> Fixed up my branch
 				E01BC01B1A8B27AD00D1568A /* Exclusive.@2x.png */,
 				E01BC0191A8B23D900D1568A /* NavBar@2x.png */,
 				E01BC0081A8B19A300D1568A /* BG 2@2x.png */,
@@ -303,6 +360,8 @@
 		E074AD8A1A8858E800CC037F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E968E2DB1A9412D900E1F64C /* FormViewControllerPrototype.h */,
+				E968E2DC1A9412D900E1F64C /* FormViewControllerPrototype.m */,
 				E0447C5A1A93CA94008AE13B /* AddItemViewControllers */,
 				E074ACFF1A8824C700CC037F /* MasterViewController.h */,
 				E074AD001A8824C700CC037F /* MasterViewController.m */,
@@ -320,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				E913BD581A93EA940030C8C8 /* NIBZ */,
+				E968E2FF1A9412E200E1F64C /* NIBZ */,
 				E0447C541A9290BB008AE13B /* UICollectionViewCells */,
 				E01BC0181A8B19AD00D1568A /* Assets */,
 				E01BC0011A8AFE1500D1568A /* Home Screen.png */,
@@ -341,6 +401,28 @@
 				E913BD631A93EAC80030C8C8 /* Page3ViewController.h */,
 				E913BD641A93EAC80030C8C8 /* Page3ViewController.m */,
 				E913BD651A93EAC80030C8C8 /* Page3ViewController.xib */,
+		E968E2FF1A9412E200E1F64C /* NIBZ */ = {
+			isa = PBXGroup;
+			children = (
+				E968E2E01A9412D900E1F64C /* Page1ViewController.h */,
+				E968E2E11A9412D900E1F64C /* Page1ViewController.m */,
+				E968E2E21A9412D900E1F64C /* Page1ViewController.xib */,
+				E968E2E31A9412D900E1F64C /* Page2ViewController.h */,
+				E968E2E41A9412D900E1F64C /* Page2ViewController.m */,
+				E968E2E51A9412D900E1F64C /* Page2ViewController.xib */,
+				E968E2E61A9412D900E1F64C /* Page3ViewController.h */,
+				E968E2E71A9412D900E1F64C /* Page3ViewController.m */,
+				E968E2E81A9412D900E1F64C /* Page3ViewController.xib */,
+				E968E2D01A9412D800E1F64C /* AddItemForm2ViewController.h */,
+				E968E2D11A9412D800E1F64C /* AddItemForm2ViewController.m */,
+				E968E2D21A9412D900E1F64C /* AddItemForm2ViewController.xib */,
+				E968E2D31A9412D900E1F64C /* AddItemForm3ViewController.h */,
+				E968E2D41A9412D900E1F64C /* AddItemForm3ViewController.m */,
+				E968E2D51A9412D900E1F64C /* AddItemForm3ViewController.xib */,
+				E968E2D61A9412D900E1F64C /* AddItemFormViewController.h */,
+				E968E2D71A9412D900E1F64C /* AddItemFormViewController.m */,
+				E968E2D81A9412D900E1F64C /* AddItemFormViewController.xib */,
+>>>>>>> Fixed up my branch
 			);
 			name = NIBZ;
 			sourceTree = "<group>";
@@ -426,10 +508,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E968E2F61A9412D900E1F64C /* On.png in Resources */,
 				E01BC01A1A8B23D900D1568A /* NavBar@2x.png in Resources */,
 				E01BC0021A8AFE1500D1568A /* Home Screen.png in Resources */,
 				E074AD071A8824C700CC037F /* Main.storyboard in Resources */,
+				E968E2F21A9412D900E1F64C /* Checked Inactive.png in Resources */,
 				E01BC0161A8B19A300D1568A /* T-Shirts@2x.png in Resources */,
+				E968E2F11A9412D900E1F64C /* Checked Active.png in Resources */,
 				E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */,
 				E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */,
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
@@ -437,9 +522,14 @@
 				E913BD751A93F2AA0030C8C8 /* On.png in Resources */,
 				E913BD791A93F7B20030C8C8 /* camera@2x.png in Resources */,
 				E913BD621A93EABD0030C8C8 /* Page2ViewController.xib in Resources */,
+				E968E2FA1A9412D900E1F64C /* Page2ViewController.xib in Resources */,
 				E01BC0141A8B19A300D1568A /* Menu@2x.png in Resources */,
 				E01BC0151A8B19A300D1568A /* Search@2x.png in Resources */,
+				E968E2EE1A9412D900E1F64C /* AddItemForm3ViewController.xib in Resources */,
 				E01BC0101A8B19A300D1568A /* BG 2@2x.png in Resources */,
+				E968E2F41A9412D900E1F64C /* maleOrFemale.png in Resources */,
+				E968E2FE1A9412D900E1F64C /* textViewRect.png in Resources */,
+				E968E2F81A9412D900E1F64C /* Page1ViewController.xib in Resources */,
 				E01BC01E1A8BF91000D1568A /* photo@2x.png in Resources */,
 				E0447C5F1A93CAE4008AE13B /* AddItemFormViewController.xib in Resources */,
 				E913BD6B1A93EC600030C8C8 /* sizeButton.png in Resources */,
@@ -457,8 +547,13 @@
 				E01BC0131A8B19A300D1568A /* Hero@2x.png in Resources */,
 				E074AD091A8824C700CC037F /* Images.xcassets in Resources */,
 				E01BC0111A8B19A300D1568A /* BG@2x.png in Resources */,
+				E968E2F01A9412D900E1F64C /* AddItemFormViewController.xib in Resources */,
 				E01BC01C1A8B27AD00D1568A /* Exclusive.@2x.png in Resources */,
+				E968E2FC1A9412D900E1F64C /* Page3ViewController.xib in Resources */,
+				E968E2EC1A9412D900E1F64C /* AddItemForm2ViewController.xib in Resources */,
 				E01BC0171A8B19A300D1568A /* Winter@2x.png in Resources */,
+				E968E2FD1A9412D900E1F64C /* sizeButton.png in Resources */,
+				E968E2F51A9412D900E1F64C /* Off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,12 +577,19 @@
 				E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
+				E968E2ED1A9412D900E1F64C /* AddItemForm3ViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
+				E968E2F71A9412D900E1F64C /* Page1ViewController.m in Sources */,
+				E968E2EF1A9412D900E1F64C /* AddItemFormViewController.m in Sources */,
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
 				E0447C701A93E43D008AE13B /* AddItemForm3ViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
 				E913BD5C1A93EAB00030C8C8 /* Page1ViewController.m in Sources */,
+				E968E2EB1A9412D900E1F64C /* AddItemForm2ViewController.m in Sources */,
+				E968E2FB1A9412D900E1F64C /* Page3ViewController.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
+				E968E2F91A9412D900E1F64C /* Page2ViewController.m in Sources */,
+				E968E2F31A9412D900E1F64C /* FormViewControllerPrototype.m in Sources */,
 				E074AD9A1A8872AF00CC037F /* Batch.m in Sources */,
 				E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */,
 				E074ACF81A8824C700CC037F /* main.m in Sources */,
