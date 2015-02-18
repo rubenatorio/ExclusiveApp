@@ -40,23 +40,6 @@
 		E074AD181A8824C700CC037F /* ExclusiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD171A8824C700CC037F /* ExclusiveTests.m */; };
 		E074AD971A8872AE00CC037F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD961A8872AE00CC037F /* Item.m */; };
 		E074AD9A1A8872AF00CC037F /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD991A8872AF00CC037F /* Batch.m */; };
-<<<<<<< HEAD
-=======
-		E913BD5C1A93EAB00030C8C8 /* Page1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E913BD5A1A93EAB00030C8C8 /* Page1ViewController.m */; };
-		E913BD5D1A93EAB00030C8C8 /* Page1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E913BD5B1A93EAB00030C8C8 /* Page1ViewController.xib */; };
-		E913BD611A93EABD0030C8C8 /* Page2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E913BD5F1A93EABD0030C8C8 /* Page2ViewController.m */; };
-		E913BD621A93EABD0030C8C8 /* Page2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E913BD601A93EABD0030C8C8 /* Page2ViewController.xib */; };
-		E913BD661A93EAC80030C8C8 /* Page3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E913BD641A93EAC80030C8C8 /* Page3ViewController.m */; };
-		E913BD671A93EAC80030C8C8 /* Page3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E913BD651A93EAC80030C8C8 /* Page3ViewController.xib */; };
-		E913BD6B1A93EC600030C8C8 /* sizeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD6A1A93EC600030C8C8 /* sizeButton.png */; };
-		E913BD6D1A93EE240030C8C8 /* textViewRect.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD6C1A93EE240030C8C8 /* textViewRect.png */; };
-		E913BD6F1A93EEDC0030C8C8 /* maleOrFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD6E1A93EEDC0030C8C8 /* maleOrFemale.png */; };
-		E913BD711A93EFE70030C8C8 /* Checked Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD701A93EFE70030C8C8 /* Checked Inactive.png */; };
-		E913BD731A93F2830030C8C8 /* Off.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD721A93F2830030C8C8 /* Off.png */; };
-		E913BD751A93F2AA0030C8C8 /* On.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD741A93F2AA0030C8C8 /* On.png */; };
-		E913BD771A93F4B90030C8C8 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD761A93F4B90030C8C8 /* Checked Active.png */; };
-		E913BD791A93F7B20030C8C8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E913BD781A93F7B20030C8C8 /* camera@2x.png */; };
->>>>>>> parent of 7b4eee6... Fixed up my branch
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,26 +102,6 @@
 		E074AD961A8872AE00CC037F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		E074AD981A8872AF00CC037F /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
 		E074AD991A8872AF00CC037F /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		E913BD591A93EAB00030C8C8 /* Page1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page1ViewController.h; sourceTree = "<group>"; };
-		E913BD5A1A93EAB00030C8C8 /* Page1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page1ViewController.m; sourceTree = "<group>"; };
-		E913BD5B1A93EAB00030C8C8 /* Page1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page1ViewController.xib; sourceTree = "<group>"; };
-		E913BD5E1A93EABD0030C8C8 /* Page2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page2ViewController.h; sourceTree = "<group>"; };
-		E913BD5F1A93EABD0030C8C8 /* Page2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page2ViewController.m; sourceTree = "<group>"; };
-		E913BD601A93EABD0030C8C8 /* Page2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page2ViewController.xib; sourceTree = "<group>"; };
-		E913BD631A93EAC80030C8C8 /* Page3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page3ViewController.h; sourceTree = "<group>"; };
-		E913BD641A93EAC80030C8C8 /* Page3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page3ViewController.m; sourceTree = "<group>"; };
-		E913BD651A93EAC80030C8C8 /* Page3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page3ViewController.xib; sourceTree = "<group>"; };
-		E913BD6A1A93EC600030C8C8 /* sizeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizeButton.png; sourceTree = "<group>"; };
-		E913BD6C1A93EE240030C8C8 /* textViewRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textViewRect.png; sourceTree = "<group>"; };
-		E913BD6E1A93EEDC0030C8C8 /* maleOrFemale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleOrFemale.png; sourceTree = "<group>"; };
-		E913BD701A93EFE70030C8C8 /* Checked Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Inactive.png"; sourceTree = "<group>"; };
-		E913BD721A93F2830030C8C8 /* Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Off.png; sourceTree = "<group>"; };
-		E913BD741A93F2AA0030C8C8 /* On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = On.png; sourceTree = "<group>"; };
-		E913BD761A93F4B90030C8C8 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
-		E913BD781A93F7B20030C8C8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
->>>>>>> parent of 7b4eee6... Fixed up my branch
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,17 +125,6 @@
 		E01BC0181A8B19AD00D1568A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
-				E913BD781A93F7B20030C8C8 /* camera@2x.png */,
-				E913BD761A93F4B90030C8C8 /* Checked Active.png */,
-				E913BD721A93F2830030C8C8 /* Off.png */,
-				E913BD741A93F2AA0030C8C8 /* On.png */,
-				E913BD701A93EFE70030C8C8 /* Checked Inactive.png */,
-				E913BD6E1A93EEDC0030C8C8 /* maleOrFemale.png */,
-				E913BD6C1A93EE240030C8C8 /* textViewRect.png */,
-				E913BD6A1A93EC600030C8C8 /* sizeButton.png */,
->>>>>>> parent of 7b4eee6... Fixed up my branch
 				E01BC01B1A8B27AD00D1568A /* Exclusive.@2x.png */,
 				E01BC0191A8B23D900D1568A /* NavBar@2x.png */,
 				E01BC0081A8B19A300D1568A /* BG 2@2x.png */,
@@ -328,10 +280,6 @@
 		E074AD8B1A88590700CC037F /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
-				E913BD581A93EA940030C8C8 /* NIBZ */,
->>>>>>> parent of 7b4eee6... Fixed up my branch
 				E0447C541A9290BB008AE13B /* UICollectionViewCells */,
 				E01BC0181A8B19AD00D1568A /* Assets */,
 				E01BC0011A8AFE1500D1568A /* Home Screen.png */,
@@ -341,25 +289,6 @@
 			name = "User Interface";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
-		E913BD581A93EA940030C8C8 /* NIBZ */ = {
-			isa = PBXGroup;
-			children = (
-				E913BD591A93EAB00030C8C8 /* Page1ViewController.h */,
-				E913BD5A1A93EAB00030C8C8 /* Page1ViewController.m */,
-				E913BD5B1A93EAB00030C8C8 /* Page1ViewController.xib */,
-				E913BD5E1A93EABD0030C8C8 /* Page2ViewController.h */,
-				E913BD5F1A93EABD0030C8C8 /* Page2ViewController.m */,
-				E913BD601A93EABD0030C8C8 /* Page2ViewController.xib */,
-				E913BD631A93EAC80030C8C8 /* Page3ViewController.h */,
-				E913BD641A93EAC80030C8C8 /* Page3ViewController.m */,
-				E913BD651A93EAC80030C8C8 /* Page3ViewController.xib */,
-			);
-			name = NIBZ;
-			sourceTree = "<group>";
-		};
->>>>>>> parent of 7b4eee6... Fixed up my branch
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -448,13 +377,6 @@
 				E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */,
 				E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */,
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
-<<<<<<< HEAD
-=======
-				E913BD5D1A93EAB00030C8C8 /* Page1ViewController.xib in Resources */,
-				E913BD751A93F2AA0030C8C8 /* On.png in Resources */,
-				E913BD791A93F7B20030C8C8 /* camera@2x.png in Resources */,
-				E913BD621A93EABD0030C8C8 /* Page2ViewController.xib in Resources */,
->>>>>>> parent of 7b4eee6... Fixed up my branch
 				E01BC0141A8B19A300D1568A /* Menu@2x.png in Resources */,
 				E01BC0151A8B19A300D1568A /* Search@2x.png in Resources */,
 				E01BC0101A8B19A300D1568A /* BG 2@2x.png in Resources */,
@@ -492,10 +414,6 @@
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
 				E0447C701A93E43D008AE13B /* AddItemForm3ViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
-<<<<<<< HEAD
-=======
-				E913BD5C1A93EAB00030C8C8 /* Page1ViewController.m in Sources */,
->>>>>>> parent of 7b4eee6... Fixed up my branch
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
 				E074AD9A1A8872AF00CC037F /* Batch.m in Sources */,
 				E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */,
