@@ -40,6 +40,7 @@
 {
     [super viewDidLoad];
     [self updateLabels];
+    self.collectionView.allowsMultipleSelection = YES;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -200,13 +201,42 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
     NSLog(@"%@",[theItem description]);
+    
+    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    
+    // animate the cell user tapped on
+    
+    [UIView animateWithDuration:0.8
+                          delay:0
+                        options:(UIViewAnimationOptionAllowUserInteraction)
+                     animations:^{
+                         [cell setBackgroundColor:[UIColor lightGrayColor]];
+                     }
+                     completion:nil];
+    
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        //TODO
+    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    
+    // animate the cell user tapped on
+        
+    [UIView animateWithDuration:0.8
+                          delay:0
+                        options:(UIViewAnimationOptionAllowUserInteraction)
+                     animations:^{
+                         [cell setBackgroundColor:[UIColor clearColor]];
+                     }
+                     completion:nil];
+}
+
+-(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ([[collectionView indexPathsForSelectedItems] count] > 0) ? NO : YES;
 }
 
 

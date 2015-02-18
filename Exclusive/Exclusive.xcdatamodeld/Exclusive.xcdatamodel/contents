@@ -14,19 +14,21 @@
         <userInfo/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="available" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date_purchased" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" defaultValueString="N\A" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="is_new" optional="YES" attributeType="Boolean" minValueString="0" defaultValueString="YES" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="on_layaway" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="price_paid" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="String" minValueString="0" syncable="YES"/>
         <relationship name="batch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Batch" inverseName="items" inverseEntity="Batch" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Batch" positionX="-2" positionY="-94" width="128" height="118"/>
+        <element name="Batch" positionX="34" positionY="-127" width="128" height="118"/>
         <element name="Event" positionX="70" positionY="144" width="128" height="58"/>
-        <element name="Item" positionX="-243" positionY="-28" width="153" height="178"/>
+        <element name="Item" positionX="-270" positionY="-153" width="153" height="208"/>
     </elements>
 </model>
