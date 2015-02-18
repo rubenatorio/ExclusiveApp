@@ -203,14 +203,11 @@
 {
     
     Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
-    //NSLog(@"%@",[theItem description]);
-    
-    NSLog(@"AYYYYYY LMAOOOO");
+    NSLog(@"%@",[theItem description]);
     
     UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     // animate the cell user tapped on
-
     
     [UIView animateWithDuration:0.8
                           delay:0
@@ -224,17 +221,10 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
-    //NSLog(@"%@",[theItem description]);
-    
-    NSLog(@"AYYYYYY LMAOOOO");
-    
     UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     // animate the cell user tapped on
-    
-    
+        
     [UIView animateWithDuration:0.8
                           delay:0
                         options:(UIViewAnimationOptionAllowUserInteraction)
@@ -242,7 +232,6 @@
                          [cell setBackgroundColor:[UIColor clearColor]];
                      }
                      completion:nil];
-    
 }
 
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
