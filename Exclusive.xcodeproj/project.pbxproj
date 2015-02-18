@@ -40,6 +40,11 @@
 		E074AD181A8824C700CC037F /* ExclusiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD171A8824C700CC037F /* ExclusiveTests.m */; };
 		E074AD971A8872AE00CC037F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD961A8872AE00CC037F /* Item.m */; };
 		E074AD9A1A8872AF00CC037F /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD991A8872AF00CC037F /* Batch.m */; };
+		E9CAA9EC1A9456C800DBCC87 /* textViewRect.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */; };
+		E9CAA9EE1A9457B200DBCC87 /* sizeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */; };
+		E9CAA9F01A94596F00DBCC87 /* maleOrFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */; };
+		E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */; };
+		E9CAA9F41A945A4C00DBCC87 /* Checked Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +107,11 @@
 		E074AD961A8872AE00CC037F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		E074AD981A8872AF00CC037F /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
 		E074AD991A8872AF00CC037F /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
+		E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textViewRect.png; sourceTree = "<group>"; };
+		E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizeButton.png; sourceTree = "<group>"; };
+		E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleOrFemale.png; sourceTree = "<group>"; };
+		E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
+		E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Inactive.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,11 @@
 		E01BC0181A8B19AD00D1568A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */,
+				E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */,
+				E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */,
+				E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */,
+				E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */,
 				E01BC01B1A8B27AD00D1568A /* Exclusive.@2x.png */,
 				E01BC0191A8B23D900D1568A /* NavBar@2x.png */,
 				E01BC0081A8B19A300D1568A /* BG 2@2x.png */,
@@ -373,10 +388,14 @@
 				E01BC01A1A8B23D900D1568A /* NavBar@2x.png in Resources */,
 				E01BC0021A8AFE1500D1568A /* Home Screen.png in Resources */,
 				E074AD071A8824C700CC037F /* Main.storyboard in Resources */,
+				E9CAA9F41A945A4C00DBCC87 /* Checked Inactive.png in Resources */,
 				E01BC0161A8B19A300D1568A /* T-Shirts@2x.png in Resources */,
+				E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */,
+				E9CAA9EC1A9456C800DBCC87 /* textViewRect.png in Resources */,
 				E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */,
 				E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */,
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
+				E9CAA9EE1A9457B200DBCC87 /* sizeButton.png in Resources */,
 				E01BC0141A8B19A300D1568A /* Menu@2x.png in Resources */,
 				E01BC0151A8B19A300D1568A /* Search@2x.png in Resources */,
 				E01BC0101A8B19A300D1568A /* BG 2@2x.png in Resources */,
@@ -384,6 +403,7 @@
 				E0447C5F1A93CAE4008AE13B /* AddItemFormViewController.xib in Resources */,
 				E074AD0C1A8824C700CC037F /* LaunchScreen.xib in Resources */,
 				E01BC0131A8B19A300D1568A /* Hero@2x.png in Resources */,
+				E9CAA9F01A94596F00DBCC87 /* maleOrFemale.png in Resources */,
 				E074AD091A8824C700CC037F /* Images.xcassets in Resources */,
 				E01BC0111A8B19A300D1568A /* BG@2x.png in Resources */,
 				E01BC01C1A8B27AD00D1568A /* Exclusive.@2x.png in Resources */,
