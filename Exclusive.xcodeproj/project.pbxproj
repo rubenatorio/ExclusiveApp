@@ -453,6 +453,10 @@
 				E913BD6F1A93EEDC0030C8C8 /* maleOrFemale.png in Resources */,
 				E913BD671A93EAC80030C8C8 /* Page3ViewController.xib in Resources */,
 				E913BD6D1A93EE240030C8C8 /* textViewRect.png in Resources */,
+				E074AD0C1A8824C700CC037F /* LaunchScreen.xib in Resources */,
+				E01BC0131A8B19A300D1568A /* Hero@2x.png in Resources */,
+				E074AD091A8824C700CC037F /* Images.xcassets in Resources */,
+				E01BC0111A8B19A300D1568A /* BG@2x.png in Resources */,
 				E01BC01C1A8B27AD00D1568A /* Exclusive.@2x.png in Resources */,
 				E01BC0171A8B19A300D1568A /* Winter@2x.png in Resources */,
 			);
