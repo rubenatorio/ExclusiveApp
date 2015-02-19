@@ -11,12 +11,21 @@
 @protocol FormViewControllerDelegate <NSObject>
 
 @required
--(void) didObtainDataFromUser:(NSDictionary *) dictionary;
+-(void) didObtainDataFromFormViewControllerWithIndex:(int) index;
 
 @end
 
+
+/*
+ *  This class is intended to be subclassed by view contorllers displayed
+ *   on the embedded view controller on AddItemViewController.
+ *  The purpose of this is to present the user with a horizontal scrolling
+ *  form to fill out information about the specific item we are trying to
+ *  add to the batch.
+ */
 @interface FormViewControllerPrototype : UIViewController
 
+/* Used to keep track of which form comes first (decided by the delegate) */
 @property (nonatomic, assign) int index;
 
 @property (nonatomic, strong) id<FormViewControllerDelegate> delegate;

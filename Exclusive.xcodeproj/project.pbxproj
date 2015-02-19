@@ -27,8 +27,6 @@
 		E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C641A93DC52008AE13B /* AddItemForm2ViewController.m */; };
 		E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0447C651A93DC52008AE13B /* AddItemForm2ViewController.xib */; };
 		E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C691A93DEBD008AE13B /* FormViewControllerPrototype.m */; };
-		E0447C701A93E43D008AE13B /* AddItemForm3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C6E1A93E43D008AE13B /* AddItemForm3ViewController.m */; };
-		E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0447C6F1A93E43D008AE13B /* AddItemForm3ViewController.xib */; };
 		E074ACF81A8824C700CC037F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E074ACF71A8824C700CC037F /* main.m */; };
 		E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E074ACFA1A8824C700CC037F /* AppDelegate.m */; };
 		E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E074ACFC1A8824C700CC037F /* Exclusive.xcdatamodeld */; };
@@ -84,9 +82,6 @@
 		E0447C651A93DC52008AE13B /* AddItemForm2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemForm2ViewController.xib; sourceTree = "<group>"; };
 		E0447C681A93DEBD008AE13B /* FormViewControllerPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewControllerPrototype.h; sourceTree = "<group>"; };
 		E0447C691A93DEBD008AE13B /* FormViewControllerPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewControllerPrototype.m; sourceTree = "<group>"; };
-		E0447C6D1A93E43D008AE13B /* AddItemForm3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemForm3ViewController.h; sourceTree = "<group>"; };
-		E0447C6E1A93E43D008AE13B /* AddItemForm3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemForm3ViewController.m; sourceTree = "<group>"; };
-		E0447C6F1A93E43D008AE13B /* AddItemForm3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemForm3ViewController.xib; sourceTree = "<group>"; };
 		E074ACF21A8824C700CC037F /* Exclusive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exclusive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E074ACF61A8824C700CC037F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E074ACF71A8824C700CC037F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -170,8 +165,6 @@
 				E0447C5C1A93CAE4008AE13B /* AddItemFormViewController.m */,
 				E0447C631A93DC52008AE13B /* AddItemForm2ViewController.h */,
 				E0447C641A93DC52008AE13B /* AddItemForm2ViewController.m */,
-				E0447C6D1A93E43D008AE13B /* AddItemForm3ViewController.h */,
-				E0447C6E1A93E43D008AE13B /* AddItemForm3ViewController.m */,
 				E0447C6C1A93E3FA008AE13B /* PROTOTYPE */,
 				E0447C6B1A93E3EB008AE13B /* NIBS */,
 			);
@@ -181,7 +174,6 @@
 		E0447C6B1A93E3EB008AE13B /* NIBS */ = {
 			isa = PBXGroup;
 			children = (
-				E0447C6F1A93E43D008AE13B /* AddItemForm3ViewController.xib */,
 				E0447C5D1A93CAE4008AE13B /* AddItemFormViewController.xib */,
 				E0447C651A93DC52008AE13B /* AddItemForm2ViewController.xib */,
 			);
@@ -393,7 +385,6 @@
 				E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */,
 				E9CAA9EC1A9456C800DBCC87 /* textViewRect.png in Resources */,
 				E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */,
-				E0447C711A93E43D008AE13B /* AddItemForm3ViewController.xib in Resources */,
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
 				E9CAA9EE1A9457B200DBCC87 /* sizeButton.png in Resources */,
 				E01BC0141A8B19A300D1568A /* Menu@2x.png in Resources */,
@@ -432,7 +423,6 @@
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
-				E0447C701A93E43D008AE13B /* AddItemForm3ViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
 				E074AD9A1A8872AF00CC037F /* Batch.m in Sources */,

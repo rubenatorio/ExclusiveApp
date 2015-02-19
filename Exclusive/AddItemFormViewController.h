@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "FormViewControllerPrototype.h"
 
-@interface AddItemFormViewController : FormViewControllerPrototype
+@interface AddItemFormViewController : FormViewControllerPrototype <UIAlertViewDelegate, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sizeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+@property (weak, nonatomic) IBOutlet UIButton *continueButton;
 
 @end

@@ -13,6 +13,9 @@
 
 @interface DetailViewController ()
 
+@property (nonatomic, strong) UIBarButtonItem *trashButton;
+@property (nonatomic, weak) NSIndexPath *currentIndexPath;
+
 @end
 
 @implementation DetailViewController
@@ -41,11 +44,33 @@
     [super viewDidLoad];
     [self updateLabels];
     self.collectionView.allowsMultipleSelection = YES;
+    
+    _trashButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                 target:self
+                                                                 action:@selector(deleteItem)];
 }
 
--(void) viewWillAppear:(BOOL)animated
+-(void)deleteItem
 {
-
+    NSLog(@"Will delete item at: %@", [_currentIndexPath description]);
+    
+    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:_currentIndexPath.row];
+    
+    NSLog(@"Will delete item: %@", [theItem description]);
+    
+    [self.detailItem removeItemsObject:theItem];
+    
+    //[self.managedObjectContext deleteObject:theItem];
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    [self.collectionView reloadData];
+    [self updateLabels];
 }
 
 -(void) updateLabels
@@ -93,6 +118,7 @@
     
     [self.collectionView reloadData];
     [self updateLabels];
+    [self.collectionView.delegate collectionView:self.collectionView shouldDeselectItemAtIndexPath:_currentIndexPath];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -217,6 +243,10 @@
                      }
                      completion:nil];
     
+    [self.navigationItem setRightBarButtonItem:_trashButton animated:YES];
+    
+    _currentIndexPath = indexPath;
+    
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -232,6 +262,11 @@
                          [cell setBackgroundColor:[UIColor clearColor]];
                      }
                      completion:nil];
+    
+    [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
+    
+    _currentIndexPath = nil;
+
 }
 
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -239,6 +274,11 @@
     return ([[collectionView indexPathsForSelectedItems] count] > 0) ? NO : YES;
 }
 
-
+-(BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_currentIndexPath)
+        _currentIndexPath = nil;
+    return YES;
+}
 
 @end

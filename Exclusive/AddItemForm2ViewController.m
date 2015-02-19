@@ -14,4 +14,9 @@
 
 @implementation AddItemForm2ViewController
 
+- (IBAction)done:(id)sender
+{
+    [self.delegate didObtainDataFromFormViewControllerWithIndex:self.index];
+}
+
 @end
