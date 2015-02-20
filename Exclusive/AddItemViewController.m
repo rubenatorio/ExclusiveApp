@@ -69,12 +69,12 @@
                                completion:^{
                                    // Obtain the image from the controller and get a handle for it so that it can be saved
                                    self.itemPhoto.image = [info valueForKey:@"UIImagePickerControllerEditedImage"];
-    }];
+                               }];
 }
 
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-     [[picker presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
+    [[picker presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
 }
 
 

@@ -14,30 +14,13 @@
 @interface DetailViewController ()
 
 @property (nonatomic, strong) UIBarButtonItem *trashButton;
-@property (nonatomic, weak) NSIndexPath *currentIndexPath;
+@property (nonatomic, strong) NSIndexPath *currentIndexPath;
 
 @end
 
 @implementation DetailViewController
 
-#pragma mark - Managing the detail item
 
-/*
- *  This function allows us to set the batch object
- *  that we will use to display detailed data
- *
- *  @params:
- *  
- *  newDetailItem: a batch object used for creating new purchased
- *                 inventory items on the batch.
- */
-- (void)setDetailItem:(Batch*)newDetailItem
-{
-    if (_detailItem != newDetailItem)
-    {
-        _detailItem = newDetailItem;
-    }
-}
 
 - (void)viewDidLoad
 {
@@ -50,23 +33,35 @@
                                                                  action:@selector(deleteItem)];
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    self.managedObjectContext = [appDelegate managedObjectContext];
+}
+
 -(void)deleteItem
 {
-    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:_currentIndexPath.row];
+    if (_currentIndexPath != nil)
+    {
+        Item * theItem = [self.detailItem.items.allObjects objectAtIndex:_currentIndexPath.row];
     
-    [self.detailItem removeItemsObject:theItem];
+        [self.detailItem removeItemsObject:theItem];
     
-    // Save the context.
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        // Save the context.
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    
+        [self.collectionView reloadData];
+        [self.collectionView deselectItemAtIndexPath:_currentIndexPath animated:YES];
+        [self collectionView:self.collectionView didDeselectItemAtIndexPath:_currentIndexPath];
+        [self.collectionView.delegate collectionView:self.collectionView shouldDeselectItemAtIndexPath:_currentIndexPath];
+        [self updateLabels];
     }
-    
-    [self.collectionView deselectItemAtIndexPath:_currentIndexPath animated:YES];
-    [self collectionView:self.collectionView didDeselectItemAtIndexPath:_currentIndexPath];
-    [self.collectionView reloadData];
-    [self updateLabels];
 }
 
 -(void) updateLabels
@@ -95,7 +90,7 @@
     theItem.batch = self.detailItem;
     
     // DEBUG
-    NSLog(@"%@",[theItem description]);
+    //NSLog(@"%@",[theItem description]);
     
     
     // Add the item pointer to the batch which owns it
@@ -159,10 +154,6 @@
 - (Item *)createItemRecord {
     //Create item record to be added and modified
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    self.managedObjectContext = [appDelegate managedObjectContext];
-    
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     
     Item *theItem = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:self.managedObjectContext];
@@ -222,8 +213,8 @@
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
-    NSLog(@"%@",[theItem description]);
+    //Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
+    //NSLog(@"%@",[theItem description]);
     
     UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
@@ -245,7 +236,6 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"DESELECTED");
     UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     // animate the cell user tapped on
@@ -260,7 +250,7 @@
     
     [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
     
-    _currentIndexPath = nil;
+    _currentIndexPath = indexPath;
 
 }
 
@@ -271,9 +261,29 @@
 
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_currentIndexPath)
-        _currentIndexPath = nil;
+    //if (_currentIndexPath)
+    //    _currentIndexPath = nil;
     return YES;
+}
+
+#pragma mark - Managing the detail item
+
+/*
+ *  This function allows us to set the batch object
+ *  that we will use to display detailed data
+ *
+ *  @params:
+ *
+ *  newDetailItem: a batch object used for creating new purchased
+ *                 inventory items on the batch.
+ */
+
+- (void)setDetailItem:(Batch*)newDetailItem
+{
+    if (_detailItem != newDetailItem)
+    {
+        _detailItem = newDetailItem;
+    }
 }
 
 @end
