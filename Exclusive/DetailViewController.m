@@ -52,15 +52,9 @@
 
 -(void)deleteItem
 {
-    NSLog(@"Will delete item at: %@", [_currentIndexPath description]);
-    
     Item * theItem = [self.detailItem.items.allObjects objectAtIndex:_currentIndexPath.row];
     
-    NSLog(@"Will delete item: %@", [theItem description]);
-    
     [self.detailItem removeItemsObject:theItem];
-    
-    //[self.managedObjectContext deleteObject:theItem];
     
     // Save the context.
     NSError *error = nil;
@@ -69,6 +63,8 @@
         abort();
     }
     
+    [self.collectionView deselectItemAtIndexPath:_currentIndexPath animated:YES];
+    [self collectionView:self.collectionView didDeselectItemAtIndexPath:_currentIndexPath];
     [self.collectionView reloadData];
     [self updateLabels];
 }
@@ -78,9 +74,7 @@
     double itemsPrice;
     
     for (Item * theItem in [[self.detailItem items] allObjects])
-    {
         itemsPrice += [theItem.price_paid doubleValue];
-    }
     
     self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu Items", (unsigned long)[self.detailItem.items count]];
     self.itemsValueLabel.text = [NSString stringWithFormat:@"$%.2f",itemsPrice ];
@@ -88,7 +82,7 @@
 
 - (IBAction)closeReceipt:(id)sender
 {
-    
+    //TODO
 }
 
 #pragma mark AddItemViewControllerDelegate
@@ -251,6 +245,7 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"DESELECTED");
     UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     // animate the cell user tapped on

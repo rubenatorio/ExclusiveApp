@@ -74,7 +74,7 @@
 
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
+     [[picker presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
@@ -97,7 +97,6 @@
             NSString *gender = [vc1.genderSegmentedControl titleForSegmentAtIndex:vc1.genderSegmentedControl.selectedSegmentIndex];
             NSString *size = [vc1.sizeSegmentedControl titleForSegmentAtIndex:vc1.sizeSegmentedControl.selectedSegmentIndex];
             
-            NSLog(@"DEBUG        %@", size);
             NSString *pricePaid = [vc1.priceTextField text];
             
             self.item.size = size;
