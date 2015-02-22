@@ -57,9 +57,7 @@
         }
     
         [self.collectionView reloadData];
-        [self.collectionView deselectItemAtIndexPath:_currentIndexPath animated:YES];
         [self collectionView:self.collectionView didDeselectItemAtIndexPath:_currentIndexPath];
-        [self.collectionView.delegate collectionView:self.collectionView shouldDeselectItemAtIndexPath:_currentIndexPath];
         [self updateLabels];
     }
 }
@@ -89,10 +87,6 @@
     // the batch on which it was purchased
     theItem.batch = self.detailItem;
     
-    // DEBUG
-    //NSLog(@"%@",[theItem description]);
-    
-    
     // Add the item pointer to the batch which owns it
     [self.detailItem addItemsObject:theItem];
     
@@ -107,7 +101,6 @@
     
     [self.collectionView reloadData];
     [self updateLabels];
-    [self.collectionView.delegate collectionView:self.collectionView shouldDeselectItemAtIndexPath:_currentIndexPath];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -142,8 +135,7 @@
     
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -257,13 +249,6 @@
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return ([[collectionView indexPathsForSelectedItems] count] > 0) ? NO : YES;
-}
-
--(BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    //if (_currentIndexPath)
-    //    _currentIndexPath = nil;
-    return YES;
 }
 
 #pragma mark - Managing the detail item
