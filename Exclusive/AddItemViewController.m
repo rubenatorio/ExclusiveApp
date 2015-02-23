@@ -52,13 +52,15 @@
         vc2.index = 1;
         vc2.delegate = self;
         
-        self.viewControllers = [NSArray arrayWithObjects:vc1,vc2, nil];
+        self.viewControllers = [NSArray arrayWithObjects: vc1,vc2, nil];
         
         self.embeddedNavigationController = (UINavigationController*) [segue destinationViewController];
         
         [self.embeddedNavigationController pushViewController:[self.viewControllers objectAtIndex:0] animated:YES];
     }
 }
+
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 #pragma mark UIImagePickerControllerDelegate
 
@@ -86,6 +88,7 @@
  *  finished obtaining and verifying data from the user to add to the item
  *  There are 2 forms responsible for different tasks.
  */
+
 -(void) didObtainDataFromFormViewControllerWithIndex:(int)index
 {
     switch (index)

@@ -204,46 +204,16 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    //Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
-    //NSLog(@"%@",[theItem description]);
-    
-    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
-    // animate the cell user tapped on
-    
-    [UIView animateWithDuration:0.8
-                          delay:0
-                        options:(UIViewAnimationOptionAllowUserInteraction)
-                     animations:^{
-                         [cell setBackgroundColor:[UIColor lightGrayColor]];
-                     }
-                     completion:nil];
-    
     [self.navigationItem setRightBarButtonItem:_trashButton animated:YES];
     
     _currentIndexPath = indexPath;
-    
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
-    // animate the cell user tapped on
-        
-    [UIView animateWithDuration:0.8
-                          delay:0
-                        options:(UIViewAnimationOptionAllowUserInteraction)
-                     animations:^{
-                         [cell setBackgroundColor:[UIColor clearColor]];
-                     }
-                     completion:nil];
-    
     [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
     
     _currentIndexPath = indexPath;
-
 }
 
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
