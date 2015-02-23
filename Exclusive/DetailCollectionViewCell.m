@@ -10,9 +10,31 @@
 
 @implementation DetailCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
     
+    if (selected)
+    {
+        [UIView animateWithDuration:0.8
+                              delay:0
+                            options:(UIViewAnimationOptionAllowUserInteraction)
+                         animations:^{
+                             [self setBackgroundColor:[UIColor lightGrayColor]];
+                         }
+                         completion:nil];
+        
+    }
+    else
+    {
+        [UIView animateWithDuration:0.8
+                              delay:0
+                            options:(UIViewAnimationOptionAllowUserInteraction)
+                         animations:^{
+                             [self setBackgroundColor:[UIColor clearColor]];
+                         }
+                         completion:nil];
+    }
 }
 
 @end

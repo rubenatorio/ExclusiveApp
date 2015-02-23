@@ -41,7 +41,7 @@
  * to message it that the Item object was succesfully populated and can be saved in the context.
  */
 @interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-                                                    UIPageViewControllerDataSource, FormViewControllerDelegate>
+                                                     FormViewControllerDelegate>
 
 
 /* Used for momentarily displaying the image of the item being added */
@@ -51,19 +51,10 @@
 /* Delegate to inform when we are done collecting data and the Item object has been populated */
 @property (nonatomic, retain) id <AddItemViewControllerDelegate> delegate;
 
-@property(strong, nonatomic) IBOutlet UIPageViewController *pageViewController;
-
+/* This property will keep track of the view controllers responsible for obtaining the item data */
 @property(strong, nonatomic) NSArray *viewControllers;
+/* Pointer to the embedded view controller to transition between forms */
+@property (strong, nonatomic) UINavigationController *embeddedNavigationController;
 
-
-// TODO:
-// these properties need to be modified to comply with the new UI specifications!!!!
-@property (weak, nonatomic) IBOutlet UIScrollView * scroller;
-@property (weak, nonatomic) IBOutlet UISwitch *isNewSwitch;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *categorySegmentedControl;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sizeSegmentedControl;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *locationSegmentedControl;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (weak, nonatomic) IBOutlet UITextField *costTextField;
 
 @end

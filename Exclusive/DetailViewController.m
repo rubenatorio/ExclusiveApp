@@ -13,39 +13,53 @@
 
 @interface DetailViewController ()
 
+@property (nonatomic, strong) UIBarButtonItem *trashButton;
+@property (nonatomic, strong) NSIndexPath *currentIndexPath;
+
 @end
 
 @implementation DetailViewController
 
-#pragma mark - Managing the detail item
 
-/*
- *  This function allows us to set the batch object
- *  that we will use to display detailed data
- *
- *  @params:
- *  
- *  newDetailItem: a batch object used for creating new purchased
- *                 inventory items on the batch.
- */
-- (void)setDetailItem:(Batch*)newDetailItem
-{
-    if (_detailItem != newDetailItem)
-    {
-        _detailItem = newDetailItem;
-    }
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self updateLabels];
     self.collectionView.allowsMultipleSelection = YES;
+    
+    _trashButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                 target:self
+                                                                 action:@selector(deleteItem)];
 }
 
--(void) viewWillAppear:(BOOL)animated
+-(void) viewDidAppear:(BOOL)animated
 {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    self.managedObjectContext = [appDelegate managedObjectContext];
+}
 
+-(void)deleteItem
+{
+    if (_currentIndexPath != nil)
+    {
+        Item * theItem = [self.detailItem.items.allObjects objectAtIndex:_currentIndexPath.row];
+    
+        [self.detailItem removeItemsObject:theItem];
+    
+        // Save the context.
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    
+        [self.collectionView reloadData];
+        [self collectionView:self.collectionView didDeselectItemAtIndexPath:_currentIndexPath];
+        [self updateLabels];
+    }
 }
 
 -(void) updateLabels
@@ -53,9 +67,7 @@
     double itemsPrice;
     
     for (Item * theItem in [[self.detailItem items] allObjects])
-    {
         itemsPrice += [theItem.price_paid doubleValue];
-    }
     
     self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu Items", (unsigned long)[self.detailItem.items count]];
     self.itemsValueLabel.text = [NSString stringWithFormat:@"$%.2f",itemsPrice ];
@@ -63,7 +75,7 @@
 
 - (IBAction)closeReceipt:(id)sender
 {
-    
+    //TODO
 }
 
 #pragma mark AddItemViewControllerDelegate
@@ -74,10 +86,6 @@
     // the relationship between the item and
     // the batch on which it was purchased
     theItem.batch = self.detailItem;
-    
-    // DEBUG
-    NSLog(@"%@",[theItem description]);
-    
     
     // Add the item pointer to the batch which owns it
     [self.detailItem addItemsObject:theItem];
@@ -127,8 +135,7 @@
     
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -138,10 +145,6 @@
 
 - (Item *)createItemRecord {
     //Create item record to be added and modified
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    self.managedObjectContext = [appDelegate managedObjectContext];
     
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     
@@ -201,37 +204,16 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.navigationItem setRightBarButtonItem:_trashButton animated:YES];
     
-    Item * theItem = [self.detailItem.items.allObjects objectAtIndex:indexPath.row];
-    NSLog(@"%@",[theItem description]);
-    
-    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
-    // animate the cell user tapped on
-    
-    [UIView animateWithDuration:0.8
-                          delay:0
-                        options:(UIViewAnimationOptionAllowUserInteraction)
-                     animations:^{
-                         [cell setBackgroundColor:[UIColor lightGrayColor]];
-                     }
-                     completion:nil];
-    
+    _currentIndexPath = indexPath;
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
     
-    // animate the cell user tapped on
-        
-    [UIView animateWithDuration:0.8
-                          delay:0
-                        options:(UIViewAnimationOptionAllowUserInteraction)
-                     animations:^{
-                         [cell setBackgroundColor:[UIColor clearColor]];
-                     }
-                     completion:nil];
+    _currentIndexPath = indexPath;
 }
 
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -239,6 +221,24 @@
     return ([[collectionView indexPathsForSelectedItems] count] > 0) ? NO : YES;
 }
 
+#pragma mark - Managing the detail item
 
+/*
+ *  This function allows us to set the batch object
+ *  that we will use to display detailed data
+ *
+ *  @params:
+ *
+ *  newDetailItem: a batch object used for creating new purchased
+ *                 inventory items on the batch.
+ */
+
+- (void)setDetailItem:(Batch*)newDetailItem
+{
+    if (_detailItem != newDetailItem)
+    {
+        _detailItem = newDetailItem;
+    }
+}
 
 @end

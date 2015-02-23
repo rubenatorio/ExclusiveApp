@@ -42,7 +42,6 @@
 
 - (void)insertNewObject:(id)sender
 {
-    
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Create Purchase Receipt"
                                                      message:@"Enter amount spent:"
                                                     delegate:self
@@ -242,8 +241,9 @@
 }
 
 #pragma mark - UIAlertView Delegate
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-    {
+{
         if (buttonIndex == 1)
         {
             UITextField *amountTextField = [alertView textFieldAtIndex:0];

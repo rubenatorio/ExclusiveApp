@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemForm2ViewController">
             <connections>
+                <outlet property="brandSegmentedControl" destination="222-bZ-j4f" id="ndJ-Oe-a6E"/>
+                <outlet property="isNewSwitch" destination="zw3-y8-YpJ" id="M7m-fp-1wV"/>
+                <outlet property="locationSegmentedControl" destination="Udd-7x-P9L" id="rd0-wV-REj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,28 +17,43 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price?" textAlignment="center" minimumFontSize="17" background="textViewRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="4rw-e6-Izl">
-                    <rect key="frame" x="98" y="35" width="179" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where was it purchased?" textAlignment="center" minimumFontSize="17" background="textViewRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="9to-JX-5Cy">
-                    <rect key="frame" x="98" y="80" width="179" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHL-Gb-5F0">
-                    <rect key="frame" x="124" y="129" width="45" height="21"/>
+                    <rect key="frame" x="138" y="129" width="45" height="21"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-7x-P9L">
+                    <rect key="frame" x="125" y="81" width="124" height="29"/>
+                    <segments>
+                        <segment title="MKE"/>
+                        <segment title="GDL"/>
+                    </segments>
+                    <color key="tintColor" red="0.21792990330000001" green="0.21792990330000001" blue="0.21792990330000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="222-bZ-j4f">
+                    <rect key="frame" x="74" y="28" width="251" height="29"/>
+                    <segments>
+                        <segment title="AE"/>
+                        <segment title="AERO"/>
+                        <segment title="Lacoste"/>
+                        <segment title="Other"/>
+                    </segments>
+                    <color key="tintColor" red="0.21792990330000001" green="0.21792990330000001" blue="0.21792990330000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxu-pa-I4L">
+                    <rect key="frame" x="164" y="187" width="55" height="30"/>
+                    <state key="normal" title="Confirm">
+                        <color key="titleColor" red="0.21792990330000001" green="0.21792990330000001" blue="0.21792990330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="done:" destination="-1" eventType="touchUpInside" id="E8U-Dd-gJB"/>
+                    </connections>
+                </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zw3-y8-YpJ">
-                    <rect key="frame" x="199" y="124" width="51" height="31"/>
+                    <rect key="frame" x="191" y="124" width="51" height="31"/>
                 </switch>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Checked Active.png" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-KU-MAf">
-                    <rect key="frame" x="175" y="186" width="24" height="24"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -43,10 +61,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="270.5" y="201.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="Checked Active.png" width="41" height="40"/>
-        <image name="textViewRect.png" width="295" height="52"/>
-    </resources>
 </document>

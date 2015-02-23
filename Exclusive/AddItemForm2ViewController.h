@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "FormViewControllerPrototype.h"
 
-@interface AddItemForm2ViewController : FormViewControllerPrototype
+@interface AddItemForm2ViewController : FormViewControllerPrototype <UIAlertViewDelegate, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *brandSegmentedControl;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *locationSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISwitch *isNewSwitch;
 
 @end

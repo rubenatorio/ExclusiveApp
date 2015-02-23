@@ -16,22 +16,6 @@
 
 @implementation InventoryMenuViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-   // self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
@@ -40,7 +24,5 @@
     
     master.managedObjectContext = [appDelegate managedObjectContext];
 }
-
-
 
 @end
