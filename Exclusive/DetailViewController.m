@@ -33,6 +33,16 @@
                                                                  action:@selector(deleteItem)];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self updateLabels];
+    
+    if ([self.detailItem.open boolValue])
+        [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
+    else
+        [self.navigationItem setRightBarButtonItem:nil animated:YES];
+}
+
 -(void) viewDidAppear:(BOOL)animated
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -73,19 +83,86 @@
     self.itemsValueLabel.text = [NSString stringWithFormat:@"$%.2f",itemsPrice ];
 }
 
+/*
+ *  Ask user if they are sure they want to publish the receipts
+ *  to allow inventory to be shipped.
+ */
+
 - (IBAction)closeReceipt:(id)sender
 {
-    //TODO
+    UIAlertController * alert=   [UIAlertController
+                                 alertControllerWithTitle:@"Publish"
+                                 message:@"are you sure you want to close this receipt?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Publish"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self publish];
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+/*
+ *  INVARIANT CHECK:
+ *  This method's purpose is to check the congruency of our model to this point.
+ *  System should inform the user that it will check the data to make sure everything is
+ *  valid.
+ */
+
+-(void) publish
+{
+    for (Item * theItem in self.detailItem.items.allObjects)
+    {
+        theItem.status = [NSNumber numberWithInt:WAITING];
+    }
+    
+    self.detailItem.open = [NSNumber numberWithBool:NO];
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    //TODO: Push changes into server 
 }
 
 #pragma mark AddItemViewControllerDelegate
-
+/*
+ *  Commit the batch changes into the context
+ */
 -(void) didCreateNewItem:(Item *)theItem
 {
     // The Item class has a property for setting
     // the relationship between the item and
     // the batch on which it was purchased
     theItem.batch = self.detailItem;
+    
+    // Since Core-data doesnt support enums natively.......
+    theItem.status = [NSNumber numberWithInt:PROCESSING];
     
     // Add the item pointer to the batch which owns it
     [self.detailItem addItemsObject:theItem];
@@ -211,13 +288,13 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
-    
     _currentIndexPath = indexPath;
 }
 
 -(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (![self.detailItem.open boolValue]) return NO;
+    
     return ([[collectionView indexPathsForSelectedItems] count] > 0) ? NO : YES;
 }
 
