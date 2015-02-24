@@ -25,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self updateLabels];
     self.collectionView.allowsMultipleSelection = YES;
     
     _trashButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
@@ -38,9 +37,15 @@
     [self updateLabels];
     
     if ([self.detailItem.open boolValue])
+    {
+        self.closeReceiptButton.hidden = NO;
         [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
+    }
     else
+    {
+        self.closeReceiptButton.hidden = YES;
         [self.navigationItem setRightBarButtonItem:nil animated:YES];
+    }
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -50,9 +55,13 @@
     self.managedObjectContext = [appDelegate managedObjectContext];
 }
 
+/*
+ *  This method is responsible for deleting the UICollectionViewCell
+ *  selected and also remove it from the batch
+ */
 -(void)deleteItem
 {
-    if (_currentIndexPath != nil)
+    if (_currentIndexPath != nil) //If we have a cell to remove
     {
         Item * theItem = [self.detailItem.items.allObjects objectAtIndex:_currentIndexPath.row];
     
@@ -66,12 +75,16 @@
             abort();
         }
     
+        // We must reload the data to make sure the cells are redisplayed correctly
         [self.collectionView reloadData];
         [self collectionView:self.collectionView didDeselectItemAtIndexPath:_currentIndexPath];
         [self updateLabels];
     }
 }
 
+/*
+ *  This method is responsible for updating the data labels from the main view
+ */
 -(void) updateLabels
 {
     double itemsPrice;
@@ -151,6 +164,7 @@
 }
 
 #pragma mark AddItemViewControllerDelegate
+
 /*
  *  Commit the batch changes into the context
  */
