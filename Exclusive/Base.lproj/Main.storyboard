@@ -30,7 +30,7 @@
             <objects>
                 <tableViewController title="Purchase Records" id="pGg-6v-bdr" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -79,7 +79,7 @@
             <objects>
                 <viewController id="fJK-RA-rZO" customClass="InventoryMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Biy-Aw-Zqt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="BG 2.png" id="41g-mL-ZEf">
@@ -140,7 +140,7 @@
             <objects>
                 <viewController title="Detail" id="Ah7-4n-0Wa" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMQ-IT-qOo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="BG 2.png" id="Lt4-5F-j8I">
@@ -241,16 +241,6 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gUR-I2-QZj">
-                                <rect key="frame" x="255" y="553" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Close Receipt">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeReceipt:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="N6C-lo-RWL"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q1K-Bc-nbm">
                                 <rect key="frame" x="131" y="480" width="112" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -275,6 +265,16 @@
                                     <segue destination="fJK-RA-rZO" kind="custom" identifier="main" customClass="PopSegue" id="cSh-b8-qyc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gUR-I2-QZj">
+                                <rect key="frame" x="255" y="553" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close Receipt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeReceipt:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="N6C-lo-RWL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -290,8 +290,10 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="addItemButton" destination="OND-sY-hvF" id="7Mc-Hg-XLp"/>
+                        <outlet property="closeReceiptButton" destination="gUR-I2-QZj" id="3ad-Q3-gYQ"/>
                         <outlet property="collectionView" destination="xqq-ax-s34" id="Q3O-wh-HuY"/>
                         <outlet property="itemsValueLabel" destination="zjE-Aw-gGL" id="Vgx-tc-VHG"/>
+                        <outlet property="mainMenuButton" destination="dCz-0t-0aJ" id="7iP-dq-UqY"/>
                         <outlet property="navigationItem" destination="cra-N8-TIN" id="27y-Ij-WzW"/>
                         <outlet property="totalItemsLabel" destination="Q1K-Bc-nbm" id="W7z-rb-BmI"/>
                     </connections>

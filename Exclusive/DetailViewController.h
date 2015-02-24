@@ -40,6 +40,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *itemsValueLabel;
+@property (weak, nonatomic) IBOutlet UIButton *mainMenuButton;
+@property (weak, nonatomic) IBOutlet UIButton *closeReceiptButton;
 
 @end
 
