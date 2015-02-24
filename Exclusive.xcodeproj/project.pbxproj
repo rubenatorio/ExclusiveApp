@@ -39,6 +39,10 @@
 		E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB831A9AE24A00FBA8D7 /* Item.m */; };
 		E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB861A9AF7C900FBA8D7 /* Batch.m */; };
 		E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */; };
+		E082DB8F1A9C29F700FBA8D7 /* ShipInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB8E1A9C29F700FBA8D7 /* ShipInventoryViewController.m */; };
+		E082DB931A9C303B00FBA8D7 /* CreateShippingOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB921A9C303B00FBA8D7 /* CreateShippingOrderViewController.m */; };
+		E082DB961A9C305700FBA8D7 /* ViewAllOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB951A9C305700FBA8D7 /* ViewAllOrdersViewController.m */; };
+		E082DB991A9C4B3600FBA8D7 /* ShippingOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB981A9C4B3600FBA8D7 /* ShippingOrder.m */; };
 		E9CAA9EC1A9456C800DBCC87 /* textViewRect.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */; };
 		E9CAA9EE1A9457B200DBCC87 /* sizeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */; };
 		E9CAA9F01A94596F00DBCC87 /* maleOrFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */; };
@@ -105,6 +109,14 @@
 		E082DB861A9AF7C900FBA8D7 /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
 		E082DB881A9C0CAB00FBA8D7 /* PopSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopSegue.h; sourceTree = "<group>"; };
 		E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopSegue.m; sourceTree = "<group>"; };
+		E082DB8D1A9C29F700FBA8D7 /* ShipInventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipInventoryViewController.h; sourceTree = "<group>"; };
+		E082DB8E1A9C29F700FBA8D7 /* ShipInventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipInventoryViewController.m; sourceTree = "<group>"; };
+		E082DB911A9C303B00FBA8D7 /* CreateShippingOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateShippingOrderViewController.h; sourceTree = "<group>"; };
+		E082DB921A9C303B00FBA8D7 /* CreateShippingOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateShippingOrderViewController.m; sourceTree = "<group>"; };
+		E082DB941A9C305700FBA8D7 /* ViewAllOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewAllOrdersViewController.h; sourceTree = "<group>"; };
+		E082DB951A9C305700FBA8D7 /* ViewAllOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewAllOrdersViewController.m; sourceTree = "<group>"; };
+		E082DB971A9C4B3600FBA8D7 /* ShippingOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingOrder.h; sourceTree = "<group>"; };
+		E082DB981A9C4B3600FBA8D7 /* ShippingOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingOrder.m; sourceTree = "<group>"; };
 		E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textViewRect.png; sourceTree = "<group>"; };
 		E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizeButton.png; sourceTree = "<group>"; };
 		E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleOrFemale.png; sourceTree = "<group>"; };
@@ -133,6 +145,8 @@
 		E01BC0181A8B19AD00D1568A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E01BC0011A8AFE1500D1568A /* Home Screen.png */,
+				E01BC01D1A8BF91000D1568A /* photo@2x.png */,
 				E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */,
 				E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */,
 				E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */,
@@ -254,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				E074ACFC1A8824C700CC037F /* Exclusive.xcdatamodeld */,
+				E082DB971A9C4B3600FBA8D7 /* ShippingOrder.h */,
+				E082DB981A9C4B3600FBA8D7 /* ShippingOrder.m */,
 				E082DB821A9AE24A00FBA8D7 /* Item.h */,
 				E082DB831A9AE24A00FBA8D7 /* Item.m */,
 				E082DB851A9AF7C900FBA8D7 /* Batch.h */,
@@ -274,13 +290,8 @@
 		E074AD8A1A8858E800CC037F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E0447C5A1A93CA94008AE13B /* AddItemViewControllers */,
-				E074ACFF1A8824C700CC037F /* MasterViewController.h */,
-				E074AD001A8824C700CC037F /* MasterViewController.m */,
-				E074AD021A8824C700CC037F /* DetailViewController.h */,
-				E074AD031A8824C700CC037F /* DetailViewController.m */,
-				E01BBFD21A89D57A00D1568A /* AddItemViewController.h */,
-				E01BBFD31A89D57A00D1568A /* AddItemViewController.m */,
+				E082DB8C1A9C296A00FBA8D7 /* Ship Inventory */,
+				E082DB8B1A9C294B00FBA8D7 /* Add Inventory */,
 				E01BC0051A8B156400D1568A /* InventoryMenuViewController.h */,
 				E01BC0061A8B156400D1568A /* InventoryMenuViewController.m */,
 			);
@@ -290,15 +301,48 @@
 		E074AD8B1A88590700CC037F /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				E082DB901A9C2A1C00FBA8D7 /* Custom Segues */,
 				E0447C541A9290BB008AE13B /* UICollectionViewCells */,
 				E01BC0181A8B19AD00D1568A /* Assets */,
-				E01BC0011A8AFE1500D1568A /* Home Screen.png */,
 				E074AD051A8824C700CC037F /* Main.storyboard */,
-				E01BC01D1A8BF91000D1568A /* photo@2x.png */,
-				E082DB881A9C0CAB00FBA8D7 /* PopSegue.h */,
-				E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */,
 			);
 			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		E082DB8B1A9C294B00FBA8D7 /* Add Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				E074ACFF1A8824C700CC037F /* MasterViewController.h */,
+				E074AD001A8824C700CC037F /* MasterViewController.m */,
+				E074AD021A8824C700CC037F /* DetailViewController.h */,
+				E074AD031A8824C700CC037F /* DetailViewController.m */,
+				E01BBFD21A89D57A00D1568A /* AddItemViewController.h */,
+				E01BBFD31A89D57A00D1568A /* AddItemViewController.m */,
+				E0447C5A1A93CA94008AE13B /* AddItemViewControllers */,
+			);
+			name = "Add Inventory";
+			sourceTree = "<group>";
+		};
+		E082DB8C1A9C296A00FBA8D7 /* Ship Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				E082DB8D1A9C29F700FBA8D7 /* ShipInventoryViewController.h */,
+				E082DB8E1A9C29F700FBA8D7 /* ShipInventoryViewController.m */,
+				E082DB911A9C303B00FBA8D7 /* CreateShippingOrderViewController.h */,
+				E082DB921A9C303B00FBA8D7 /* CreateShippingOrderViewController.m */,
+				E082DB941A9C305700FBA8D7 /* ViewAllOrdersViewController.h */,
+				E082DB951A9C305700FBA8D7 /* ViewAllOrdersViewController.m */,
+			);
+			name = "Ship Inventory";
+			sourceTree = "<group>";
+		};
+		E082DB901A9C2A1C00FBA8D7 /* Custom Segues */ = {
+			isa = PBXGroup;
+			children = (
+				E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */,
+				E082DB881A9C0CAB00FBA8D7 /* PopSegue.h */,
+			);
+			name = "Custom Segues";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,13 +467,17 @@
 			files = (
 				E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */,
 				E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */,
+				E082DB991A9C4B3600FBA8D7 /* ShippingOrder.m in Sources */,
 				E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */,
+				E082DB961A9C305700FBA8D7 /* ViewAllOrdersViewController.m in Sources */,
 				E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
 				E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
+				E082DB931A9C303B00FBA8D7 /* CreateShippingOrderViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
+				E082DB8F1A9C29F700FBA8D7 /* ShipInventoryViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
 				E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */,

@@ -152,9 +152,7 @@
 -(void) publish
 {
     for (Item * theItem in self.detailItem.items.allObjects)
-    {
         theItem.status = [NSNumber numberWithInt:WAITING];
-    }
     
     self.detailItem.open = [NSNumber numberWithBool:NO];
     
