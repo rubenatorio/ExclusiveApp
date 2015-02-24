@@ -32,10 +32,11 @@
                                                                  action:@selector(deleteItem)];
 }
 
--(void) viewWillAppear:(BOOL)animated
+/*
+ *  check if the user should have editing capabilities over the current receipt
+ */
+- (void)checkLock
 {
-    [self updateLabels];
-    
     if ([self.detailItem.open boolValue])
     {
         self.closeReceiptButton.hidden = NO;
@@ -46,6 +47,13 @@
         self.closeReceiptButton.hidden = YES;
         [self.navigationItem setRightBarButtonItem:nil animated:YES];
     }
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self updateLabels];
+    
+    [self checkLock];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -158,7 +166,7 @@
         abort();
     }
     
-    self.navigationItem.rightBarButtonItem = nil;
+    [self checkLock];
     
     //TODO: Push changes into server 
 }
