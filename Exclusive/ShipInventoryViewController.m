@@ -8,21 +8,45 @@
 
 #import "ShipInventoryViewController.h"
 #import "ViewAllOrdersViewController.h"
+#import "AppDelegate.h"
 
 @interface ShipInventoryViewController ()
+
+@property (strong, nonatomic) NSArray * shippedOrders;
+@property (strong, nonatomic) NSArray * awaitingConfirmation;
+@property (strong, nonatomic) NSArray * shippableObjects;
+@property (assign, nonatomic) BOOL dataChanged;
 
 @end
 
 @implementation ShipInventoryViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)fetchData
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectModel *model = [appDelegate managedObjectModel];
+    
+    _shippedOrders = [self.managedObjectContext executeFetchRequest:[model fetchRequestTemplateForName:@"OrdersShipped"]
+                                                              error:nil];
+    _awaitingConfirmation = [self.managedObjectContext executeFetchRequest:[model fetchRequestTemplateForName:@"AwaitingConfimation"]
+                                                                             error:nil];
+    _shippableObjects = [self.managedObjectContext executeFetchRequest:[model fetchRequestTemplateForName:@"ReadyToShip"]
+                                                                         error:nil];
+    _dataChanged = NO;
+    
+    NSLog(@"%@", [[model fetchRequestTemplateForName:@"OrdersShipped"] description]);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) viewDidLoad
+{
+    [super viewDidLoad];
+    [self fetchData];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self updateLabels];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -32,9 +56,14 @@
     {
         NSEntityDescription *entity = [[self.shippingOrdersFetchedController fetchRequest] entity];
         
-        ShippingOrder *shippingOrder = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:self.managedObjectContext];
+        ShippingOrder *shippingOrder = [NSEntityDescription insertNewObjectForEntityForName:[entity name]
+                                                                     inManagedObjectContext:self.managedObjectContext];
+        
+        // Since Core-data doesnt support enums natively.......
+        shippingOrder.status = [NSNumber numberWithInt:ORDER_PROCESSING];
         
         CreateShippingOrderViewController *vc = (CreateShippingOrderViewController*)[segue destinationViewController];
+        
         vc.delegate = self;
         vc.shippingOrder = shippingOrder;
     }
@@ -47,10 +76,17 @@
     }
 }
 
+/*
+ *  This method is responsible for updating the data labels from the main view
+ */
 -(void) updateLabels
 {
-    //self.beingShippedLabel.text = [NSString stringWithFormat:@"%f",itemsPrice ];
+    if (_dataChanged)
+        [self fetchData];
     
+    self.shippedOrdersLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[_shippedOrders count]];
+    self.awatingConfirmationLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[_awaitingConfirmation count]];
+    self.shippableItemsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[_shippableObjects count]];
 }
 
 #pragma mark - Fetched results controller
@@ -131,6 +167,10 @@
     }
     
     NSLog(@"Succesfully created shipping order with %lu items", (unsigned long)[shippingOrder.items count]);
+    
+    _dataChanged = YES;
+    
+    [self updateLabels];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

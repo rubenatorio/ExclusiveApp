@@ -14,6 +14,7 @@
 
 @dynamic order_value;
 @dynamic date_shipped;
+@dynamic status;
 @dynamic items;
 
 @end

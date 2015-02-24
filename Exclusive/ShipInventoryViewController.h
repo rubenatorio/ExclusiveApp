@@ -15,9 +15,10 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *shippingOrdersFetchedController;
 
-@property (weak, nonatomic) IBOutlet UILabel *beingShippedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastOrderShippedDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *awaitingConfirmationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *shippedOrdersLabel;
+@property (weak, nonatomic) IBOutlet UILabel *awatingConfirmationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *shippableItemsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastOrderLabel;
 
 
 @end

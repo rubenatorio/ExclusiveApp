@@ -11,10 +11,13 @@
 
 @class Item;
 
+typedef enum {ORDER_PROCESSING, ORDER_SHIPPING, ORDER_RECEIVED} orderStatus;
+
 @interface ShippingOrder : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * order_value;
 @property (nonatomic, retain) NSDate * date_shipped;
+@property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSSet *items;
 @end
 

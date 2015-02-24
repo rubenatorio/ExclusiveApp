@@ -24,13 +24,16 @@
     <entity name="ShippingOrder" representedClassName="ShippingOrder" syncable="YES">
         <attribute name="date_shipped" attributeType="Date" syncable="YES"/>
         <attribute name="order_value" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="items" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="shippingOrder" inverseEntity="Item" syncable="YES"/>
     </entity>
+    <fetchRequest name="AwaitingConfimation" entity="ShippingOrder" predicateString="status == 1"/>
     <fetchRequest name="ItemsShipping" entity="Item" predicateString="status == 2"/>
+    <fetchRequest name="OrdersShipped" entity="ShippingOrder" predicateString="status == 2 OR status == 1"/>
     <fetchRequest name="ReadyToShip" entity="Item" predicateString="status == 1"/>
     <elements>
         <element name="Batch" positionX="-99" positionY="-126" width="128" height="118"/>
         <element name="Item" positionX="-360" positionY="-216" width="153" height="223"/>
-        <element name="ShippingOrder" positionX="-630" positionY="-196" width="128" height="88"/>
+        <element name="ShippingOrder" positionX="-630" positionY="-196" width="128" height="103"/>
     </elements>
 </model>

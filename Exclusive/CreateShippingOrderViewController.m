@@ -4,6 +4,8 @@
 
 @interface CreateShippingOrderViewController()
 
+@property (strong, nonatomic) NSMutableArray *selectedItems;
+
 @end
 
 @implementation CreateShippingOrderViewController
@@ -12,8 +14,13 @@
 {
     [super viewDidLoad];
     self.collectionView.allowsMultipleSelection = YES;
+    _selectedItems = [NSMutableArray arrayWithObjects:nil];
 }
 
+-(BOOL) prefersStatusBarHidden
+{
+    return YES;
+}
 
 
 -(void) viewWillAppear:(BOOL)animated
@@ -21,14 +28,26 @@
     [self updateLabels];
 }
 
-
-
 /*
  *  This method is responsible for updating the data labels from the main view
  */
 -(void) updateLabels
 {
-
+    double orderValue = 0;
+    int totalItems = 0;
+    
+    // If the user has selected items to add
+    if (_selectedItems && [_selectedItems count] > 0)
+    {
+        for (Item *theItem in _selectedItems)
+        {
+            totalItems++;
+            orderValue += [theItem.price_paid doubleValue];
+        }
+    }
+    
+    self.itemsToShipLabel.text = [NSString stringWithFormat:@"%d", totalItems];
+    self.orderValueLabel.text = [NSString stringWithFormat:@"$%.2f", orderValue];
 }
 
 - (IBAction)cancel:(id)sender
@@ -56,6 +75,9 @@
     self.shippingOrder.order_value = [NSNumber numberWithDouble:itemsPrice];
     
     self.shippingOrder.date_shipped = [NSDate date];
+    
+    // Since Core-data doesnt support enums natively.......
+    self.shippingOrder.status = [NSNumber numberWithInt:ORDER_SHIPPING];
     
     [self.delegate didCreateNewShippingOrder: self.shippingOrder];
 }
@@ -180,18 +202,13 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    [self.selectedItems addObject:[self.waitingItemsFetchedController objectAtIndexPath:indexPath]];
+    [self updateLabels];
 }
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    [self.selectedItems removeObject:[self.waitingItemsFetchedController objectAtIndexPath:indexPath]];
+    [self updateLabels];
 }
-
--(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-
 @end
