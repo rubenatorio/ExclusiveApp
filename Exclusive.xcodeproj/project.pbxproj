@@ -36,8 +36,9 @@
 		E074AD091A8824C700CC037F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E074AD081A8824C700CC037F /* Images.xcassets */; };
 		E074AD0C1A8824C700CC037F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E074AD0A1A8824C700CC037F /* LaunchScreen.xib */; };
 		E074AD181A8824C700CC037F /* ExclusiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD171A8824C700CC037F /* ExclusiveTests.m */; };
-		E074AD971A8872AE00CC037F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD961A8872AE00CC037F /* Item.m */; };
-		E074AD9A1A8872AF00CC037F /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD991A8872AF00CC037F /* Batch.m */; };
+		E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB831A9AE24A00FBA8D7 /* Item.m */; };
+		E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB861A9AF7C900FBA8D7 /* Batch.m */; };
+		E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */; };
 		E9CAA9EC1A9456C800DBCC87 /* textViewRect.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */; };
 		E9CAA9EE1A9457B200DBCC87 /* sizeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */; };
 		E9CAA9F01A94596F00DBCC87 /* maleOrFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */; };
@@ -98,10 +99,12 @@
 		E074AD111A8824C700CC037F /* ExclusiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExclusiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E074AD161A8824C700CC037F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E074AD171A8824C700CC037F /* ExclusiveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExclusiveTests.m; sourceTree = "<group>"; };
-		E074AD951A8872AE00CC037F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		E074AD961A8872AE00CC037F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		E074AD981A8872AF00CC037F /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
-		E074AD991A8872AF00CC037F /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
+		E082DB821A9AE24A00FBA8D7 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../Item.h; sourceTree = "<group>"; };
+		E082DB831A9AE24A00FBA8D7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = ../Item.m; sourceTree = "<group>"; };
+		E082DB851A9AF7C900FBA8D7 /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
+		E082DB861A9AF7C900FBA8D7 /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
+		E082DB881A9C0CAB00FBA8D7 /* PopSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopSegue.h; sourceTree = "<group>"; };
+		E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopSegue.m; sourceTree = "<group>"; };
 		E9CAA9EB1A9456C800DBCC87 /* textViewRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textViewRect.png; sourceTree = "<group>"; };
 		E9CAA9ED1A9457B200DBCC87 /* sizeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizeButton.png; sourceTree = "<group>"; };
 		E9CAA9EF1A94596F00DBCC87 /* maleOrFemale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleOrFemale.png; sourceTree = "<group>"; };
@@ -251,10 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				E074ACFC1A8824C700CC037F /* Exclusive.xcdatamodeld */,
-				E074AD981A8872AF00CC037F /* Batch.h */,
-				E074AD991A8872AF00CC037F /* Batch.m */,
-				E074AD951A8872AE00CC037F /* Item.h */,
-				E074AD961A8872AE00CC037F /* Item.m */,
+				E082DB821A9AE24A00FBA8D7 /* Item.h */,
+				E082DB831A9AE24A00FBA8D7 /* Item.m */,
+				E082DB851A9AF7C900FBA8D7 /* Batch.h */,
+				E082DB861A9AF7C900FBA8D7 /* Batch.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,8 @@
 				E01BC0011A8AFE1500D1568A /* Home Screen.png */,
 				E074AD051A8824C700CC037F /* Main.storyboard */,
 				E01BC01D1A8BF91000D1568A /* photo@2x.png */,
+				E082DB881A9C0CAB00FBA8D7 /* PopSegue.h */,
+				E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -416,16 +421,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */,
 				E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */,
-				E074AD971A8872AE00CC037F /* Item.m in Sources */,
 				E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */,
+				E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
+				E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
-				E074AD9A1A8872AF00CC037F /* Batch.m in Sources */,
 				E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */,
 				E074ACF81A8824C700CC037F /* main.m in Sources */,
 				E0447C581A9290D9008AE13B /* DetailCollectionViewCell.m in Sources */,

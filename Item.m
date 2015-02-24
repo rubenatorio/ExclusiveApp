@@ -2,9 +2,9 @@
 //  Item.m
 //  Exclusive
 //
-//  Created by Ruben Flores on 2/8/15.
+//  Created by Ruben Flores on 2/22/15.
 //  Copyright (c) 2015 Ruben Flores. All rights reserved.
-// AYYYY LMAO
+//
 
 #import "Item.h"
 #import "Batch.h"
@@ -12,15 +12,17 @@
 
 @implementation Item
 
-@dynamic product_id;
-@dynamic is_new;
-@dynamic price_paid;
-@dynamic image;
-@dynamic size;
-@dynamic date_purchased;
-@dynamic location;
-@dynamic category;
+@dynamic available;
 @dynamic brand;
+@dynamic category;
+@dynamic date_purchased;
+@dynamic image;
+@dynamic is_new;
+@dynamic location;
+@dynamic on_layaway;
+@dynamic price_paid;
+@dynamic size;
+@dynamic status;
 @dynamic batch;
 
 @end
