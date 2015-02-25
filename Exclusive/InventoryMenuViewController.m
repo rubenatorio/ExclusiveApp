@@ -9,20 +9,32 @@
 #import "InventoryMenuViewController.h"
 #import "AppDelegate.h"
 #import "MasterViewController.h"
-
+#import "ShipInventoryViewController.h"
 @interface InventoryMenuViewController ()
 
 @end
 
 @implementation InventoryMenuViewController
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     
-    MasterViewController *master = (MasterViewController *) [segue destinationViewController];
+    if ([[segue identifier] isEqualToString:@"AddInventory"])
+    {
+        MasterViewController *master = (MasterViewController *) [segue destinationViewController];
+        
+        master.managedObjectContext = [appDelegate managedObjectContext];
+    }
     
-    master.managedObjectContext = [appDelegate managedObjectContext];
+    else if ([[segue identifier] isEqualToString:@"ShipInventory"])
+    {
+        ShipInventoryViewController *shipping = (ShipInventoryViewController *) [segue destinationViewController];
+        
+        shipping.managedObjectContext = [appDelegate managedObjectContext];
+        
+        shipping.title = @"Shipping";
+    }
 }
 
 @end
