@@ -100,7 +100,7 @@
     for (Item * theItem in [[self.detailItem items] allObjects])
         itemsPrice += [theItem.price_paid doubleValue];
     
-    self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu Items", (unsigned long)[self.detailItem.items count]];
+    self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.detailItem.items count]];
     self.itemsValueLabel.text = [NSString stringWithFormat:@"$%.2f",itemsPrice ];
 }
 

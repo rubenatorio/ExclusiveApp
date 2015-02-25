@@ -30,12 +30,10 @@
     _shippedOrders = [self.managedObjectContext executeFetchRequest:[model fetchRequestTemplateForName:@"OrdersShipped"]
                                                               error:nil];
     _awaitingConfirmation = [self.managedObjectContext executeFetchRequest:[model fetchRequestTemplateForName:@"AwaitingConfimation"]
-                                                                             error:nil];
+                                                                     error:nil];
     _shippableObjects = [self.managedObjectContext executeFetchRequest:[model fetchRequestTemplateForName:@"ReadyToShip"]
-                                                                         error:nil];
+                                                                 error:nil];
     _dataChanged = NO;
-    
-    NSLog(@"%@", [[model fetchRequestTemplateForName:@"OrdersShipped"] description]);
 }
 
 -(void) viewDidLoad
