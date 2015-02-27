@@ -20,7 +20,10 @@
                               delay:0
                             options:(UIViewAnimationOptionAllowUserInteraction)
                          animations:^{
-                             [self setBackgroundColor:[UIColor lightGrayColor]];
+                             [self setBackgroundColor:[UIColor colorWithRed:255.0/255.0
+                                                                      green:100.0/255.0
+                                                                       blue:84.0/255.0
+                                                                      alpha:0.5]];
                          }
                          completion:nil];
         

@@ -24,8 +24,6 @@
 {
     [super viewDidLoad];
     
-    UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG 2"]];
-    [self.tableView setBackgroundView:boxBackView];
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self

@@ -32,10 +32,11 @@
                                                                  action:@selector(deleteItem)];
 }
 
--(void) viewWillAppear:(BOOL)animated
+/*
+ *  check if the user should have editing capabilities over the current receipt
+ */
+- (void)checkLock
 {
-    [self updateLabels];
-    
     if ([self.detailItem.open boolValue])
     {
         self.closeReceiptButton.hidden = NO;
@@ -46,6 +47,13 @@
         self.closeReceiptButton.hidden = YES;
         [self.navigationItem setRightBarButtonItem:nil animated:YES];
     }
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self updateLabels];
+    
+    [self checkLock];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -92,7 +100,7 @@
     for (Item * theItem in [[self.detailItem items] allObjects])
         itemsPrice += [theItem.price_paid doubleValue];
     
-    self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu Items", (unsigned long)[self.detailItem.items count]];
+    self.totalItemsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.detailItem.items count]];
     self.itemsValueLabel.text = [NSString stringWithFormat:@"$%.2f",itemsPrice ];
 }
 
@@ -144,9 +152,7 @@
 -(void) publish
 {
     for (Item * theItem in self.detailItem.items.allObjects)
-    {
         theItem.status = [NSNumber numberWithInt:WAITING];
-    }
     
     self.detailItem.open = [NSNumber numberWithBool:NO];
     
@@ -158,7 +164,7 @@
         abort();
     }
     
-    self.navigationItem.rightBarButtonItem = nil;
+    [self checkLock];
     
     //TODO: Push changes into server 
 }
@@ -302,6 +308,7 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
     _currentIndexPath = indexPath;
 }
 
