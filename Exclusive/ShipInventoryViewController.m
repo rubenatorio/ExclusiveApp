@@ -47,7 +47,8 @@
     [self updateLabels];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
     
     if ([[segue identifier] isEqualToString:@"CreateShippingOrder"])

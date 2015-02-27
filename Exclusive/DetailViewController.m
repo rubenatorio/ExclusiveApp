@@ -308,6 +308,7 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.navigationItem setRightBarButtonItem:self.addItemButton animated:YES];
     _currentIndexPath = indexPath;
 }
 
