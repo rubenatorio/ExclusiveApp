@@ -32,8 +32,8 @@
     <fetchRequest name="OrdersShipped" entity="ShippingOrder" predicateString="status == 2 OR status == 1"/>
     <fetchRequest name="ReadyToShip" entity="Item" predicateString="status == 1"/>
     <elements>
-        <element name="Batch" positionX="-99" positionY="-126" width="128" height="118"/>
-        <element name="Item" positionX="-360" positionY="-216" width="153" height="223"/>
-        <element name="ShippingOrder" positionX="-630" positionY="-196" width="128" height="103"/>
+        <element name="Batch" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ShippingOrder" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

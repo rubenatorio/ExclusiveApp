@@ -12,9 +12,6 @@
 
 @interface ShipInventoryViewController : UIViewController <NSFetchedResultsControllerDelegate, CreateShippingOrderDelegate>
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSFetchedResultsController *shippingOrdersFetchedController;
-
 @property (weak, nonatomic) IBOutlet UILabel *shippedOrdersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *awatingConfirmationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shippableItemsLabel;

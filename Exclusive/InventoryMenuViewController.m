@@ -18,20 +18,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     
     if ([[segue identifier] isEqualToString:@"AddInventory"])
     {
-        MasterViewController *master = (MasterViewController *) [segue destinationViewController];
         
-        master.managedObjectContext = [appDelegate managedObjectContext];
     }
     
     else if ([[segue identifier] isEqualToString:@"ShipInventory"])
     {
         ShipInventoryViewController *shipping = (ShipInventoryViewController *) [segue destinationViewController];
-        
-        shipping.managedObjectContext = [appDelegate managedObjectContext];
         
         shipping.title = @"Shipping";
     }

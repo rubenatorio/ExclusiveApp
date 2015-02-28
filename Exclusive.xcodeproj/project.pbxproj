@@ -53,6 +53,7 @@
 		E082DBBB1A9EBC2300FBA8D7 /* exclusive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBBA1A9EBC2300FBA8D7 /* exclusive@2x.png */; };
 		E082DBBD1A9EC06D00FBA8D7 /* selectedButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBBC1A9EC06D00FBA8D7 /* selectedButton@2x.png */; };
 		E082DBC11A9FE7D300FBA8D7 /* Logo Black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBC01A9FE7D300FBA8D7 /* Logo Black@2x.png */; };
+		E082DBC61AA0308600FBA8D7 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBC51AA0308600FBA8D7 /* ModelController.m */; };
 		E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */; };
 		E9CAA9F41A945A4C00DBCC87 /* Checked Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,8 @@
 		E082DBBA1A9EBC2300FBA8D7 /* exclusive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exclusive@2x.png"; sourceTree = "<group>"; };
 		E082DBBC1A9EC06D00FBA8D7 /* selectedButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectedButton@2x.png"; sourceTree = "<group>"; };
 		E082DBC01A9FE7D300FBA8D7 /* Logo Black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Black@2x.png"; sourceTree = "<group>"; };
+		E082DBC41AA0308600FBA8D7 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
+		E082DBC51AA0308600FBA8D7 /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
 		E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
 		E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Inactive.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,8 +230,8 @@
 		E074ACF41A8824C700CC037F /* Exclusive */ = {
 			isa = PBXGroup;
 			children = (
-				E074AD881A8858BC00CC037F /* Model */,
 				E074AD891A8858DB00CC037F /* App Delegate */,
+				E074AD881A8858BC00CC037F /* Model */,
 				E074AD8A1A8858E800CC037F /* View Controllers */,
 				E074AD8B1A88590700CC037F /* User Interface */,
 				E074ACF51A8824C700CC037F /* Supporting Files */,
@@ -268,12 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				E074ACFC1A8824C700CC037F /* Exclusive.xcdatamodeld */,
-				E082DBA11A9D2E0300FBA8D7 /* ShippingOrder.h */,
-				E082DBA21A9D2E0300FBA8D7 /* ShippingOrder.m */,
-				E082DB821A9AE24A00FBA8D7 /* Item.h */,
-				E082DB831A9AE24A00FBA8D7 /* Item.m */,
-				E082DB851A9AF7C900FBA8D7 /* Batch.h */,
-				E082DB861A9AF7C900FBA8D7 /* Batch.m */,
+				E082DBC71AA12DBA00FBA8D7 /* ManagedObjects */,
+				E082DBC41AA0308600FBA8D7 /* ModelController.h */,
+				E082DBC51AA0308600FBA8D7 /* ModelController.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +388,19 @@
 				E082DBB31A9E966800FBA8D7 /* Ship Inventory@2x.png */,
 			);
 			name = "Main Menu";
+			sourceTree = "<group>";
+		};
+		E082DBC71AA12DBA00FBA8D7 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				E082DBA11A9D2E0300FBA8D7 /* ShippingOrder.h */,
+				E082DBA21A9D2E0300FBA8D7 /* ShippingOrder.m */,
+				E082DB821A9AE24A00FBA8D7 /* Item.h */,
+				E082DB831A9AE24A00FBA8D7 /* Item.m */,
+				E082DB851A9AF7C900FBA8D7 /* Batch.h */,
+				E082DB861A9AF7C900FBA8D7 /* Batch.m */,
+			);
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +537,7 @@
 				E082DB961A9C305700FBA8D7 /* ViewAllOrdersViewController.m in Sources */,
 				E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
+				E082DBC61AA0308600FBA8D7 /* ModelController.m in Sources */,
 				E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
 				E082DB931A9C303B00FBA8D7 /* CreateShippingOrderViewController.m in Sources */,

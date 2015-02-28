@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Batch.h"
 #import "AddItemViewController.h"
+#import "ModelController.h"
 
 /* 
  *  The purpose of this view controller is to allow an authorized user to add a batch item.
@@ -28,15 +28,12 @@
                                                     UICollectionViewDataSource, UICollectionViewDelegate>
 
 /* Pointer to the batch record that will be displayed and manipulated */
-@property (strong, nonatomic) Batch *detailItem;
+@property (strong, nonatomic) Batch *batch;
 /* Outlet to allow us to trigger segues from the storyboard */
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addItemButton;
 /* This outlet property will be used to present the Batch items data to the user */
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-/* Used for obtaining Item records from the batch */
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-/* Main Context where the objects will reside */
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *itemsValueLabel;
