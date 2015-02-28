@@ -1,38 +1,51 @@
 #import "CreateShippingOrderViewController.h"
 #import "DetailCollectionViewCell.h"
-#import "Item.h"
+#import "ModelController.h"
 
 @interface CreateShippingOrderViewController()
 
 @property (strong, nonatomic) NSMutableArray *selectedItems;
 
+@property (nonatomic, strong) NSFetchedResultsController *waitingItemsResultsController;
+
+@property (nonatomic, strong) ModelController * modelController;
+
 @end
 
 @implementation CreateShippingOrderViewController
 
-- (void)viewDidLoad
-{
+-(void)viewDidLoad {
     [super viewDidLoad];
+    
     self.collectionView.allowsMultipleSelection = YES;
+    
     _selectedItems = [NSMutableArray arrayWithObjects:nil];
+    
+    //Obtain the batch FetchedResultsController from the model controller
+    
+    _modelController = [ModelController sharedController];
+    
+    _waitingItemsResultsController = [_modelController waitingItemsFetchedController];
+    
+    _waitingItemsResultsController.delegate = self;
+    
 }
 
--(BOOL) prefersStatusBarHidden
-{
-    return NO;
+-(BOOL) prefersStatusBarHidden {
+    return YES;
 }
 
-
--(void) viewWillAppear:(BOOL)animated
-{
+-(void) viewWillAppear:(BOOL)animated {
+    _modelController = [ModelController sharedController];
+    
+    _waitingItemsResultsController = [_modelController waitingItemsFetchedController];
+    
+    [self.collectionView reloadData];
+    
     [self updateLabels];
 }
 
-/*
- *  This method is responsible for updating the data labels from the main view
- */
--(void) updateLabels
-{
+-(void) updateLabels {
     double orderValue = 0;
     int totalItems = 0;
     
@@ -50,20 +63,18 @@
     self.orderValueLabel.text = [NSString stringWithFormat:@"$%.2f", orderValue];
 }
 
-- (IBAction)cancel:(id)sender
-{
+-(IBAction)cancel:(id)sender {
     [self.delegate userDidCancelShippingOrder:self.shippingOrder];
 }
 
-- (void)userConfirmed
-{
+-(void)userConfirmed {
     NSArray *selectedItemsIndexes = [self.collectionView indexPathsForSelectedItems];
     
     double itemsPrice;
     
     for (NSIndexPath *indexPath in selectedItemsIndexes)
     {
-        Item *theItem = [self.waitingItemsFetchedController objectAtIndexPath:indexPath];
+        Item *theItem = [_waitingItemsResultsController objectAtIndexPath:indexPath];
         
         theItem.status = [NSNumber numberWithInt:SHIPPING];
         
@@ -82,8 +93,7 @@
     [self.delegate didCreateNewShippingOrder: self.shippingOrder];
 }
 
-- (IBAction)confirmOrder:(id)sender
-{
+-(IBAction)confirmOrder:(id)sender {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Create Order:"
                                   message:@"are you sure you want to continue?"
@@ -114,80 +124,24 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - Fetched results controller
-
-- (NSFetchedResultsController *)waitingItemsFetchedController
-{
-    if (_waitingItemsFetchedController != nil) {
-        return _waitingItemsFetchedController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"status == %i", WAITING];
-    [fetchRequest setPredicate:predicate];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"price_paid" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
-    aFetchedResultsController.delegate = self;
-    self.waitingItemsFetchedController = aFetchedResultsController;
-    
-    NSError *error = nil;
-    if (![self.waitingItemsFetchedController performFetch:&error]) {
-        
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _waitingItemsFetchedController;
-}
-
-#pragma mark - Segues
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    /* We need to assign ourselves as the next view controller's delegate
-     to allow us to dismiss it when the user is done interacting with it */
-    if ([[segue identifier] isEqualToString:@"addItemModal"])
-    {
-
-    }
-}
-
 #pragma mark UICollectionViewDataSource
 
--(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.waitingItemsFetchedController sections][section];
+-(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [_waitingItemsResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
--(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
--(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     // The main storyboard contains a prototype cell class (See DetailCell class)
     
     DetailCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell"
                                                                                 forIndexPath:indexPath];
     
-    Item * theItem = [self.waitingItemsFetchedController objectAtIndexPath:indexPath];
+    Item * theItem = [_waitingItemsResultsController objectAtIndexPath:indexPath];
     
     cell.brandLabel.text = theItem.brand;
     cell.sizeLabel.text = theItem.size;
@@ -200,15 +154,14 @@
 
 #pragma mark UICollectionViewDelegate
 
--(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self.selectedItems addObject:[self.waitingItemsFetchedController objectAtIndexPath:indexPath]];
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.selectedItems addObject:[_waitingItemsResultsController objectAtIndexPath:indexPath]];
     [self updateLabels];
 }
 
--(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self.selectedItems removeObject:[self.waitingItemsFetchedController objectAtIndexPath:indexPath]];
+-(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.selectedItems removeObject:[_waitingItemsResultsController objectAtIndexPath:indexPath]];
     [self updateLabels];
 }
+
 @end
