@@ -67,11 +67,9 @@
                                              selector:@selector(orderWasShipped:)
                                                  name:@"ShippingOrderShipped"
                                                object:_modelController];
-}
-
--(void) orderWasShipped: (NSNotification *) notification {
     
-    NSLog(@"NOTIFICATION RECEIVED");
+    if ([_awaitingConfirmation count] > 0)
+        [self receive];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -111,6 +109,7 @@
 }
 
 -(void) didCreateNewShippingOrder:(ShippingOrder *)shippingOrder {
+    
     [_modelController saveLocalContext];
     
     NSError *error = nil;
@@ -130,6 +129,28 @@
     [self updateLabels];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Handle NSNotifications
+
+-(void) orderWasShipped: (NSNotification *) notification {
+    
+    NSLog(@"NOTIFICATION RECEIVED");
+    
+    [self aknowledgeOrder];
+}
+
+-(void) aknowledgeOrder {
+    
+    UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithTitle:@"Receive"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(receive)];
+    [self.navigationItem setRightBarButtonItem:button];
+}
+
+-(void) receive {
+    
 }
 
 @end
