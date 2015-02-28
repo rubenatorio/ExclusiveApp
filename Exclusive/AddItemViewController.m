@@ -23,8 +23,7 @@
  *  This function will load the device camera for taking a picture of the
  *  target item and allow us to index it into our model
  */
-- (IBAction)takePicture:(id)sender
-{
+-(IBAction)takePicture:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -38,8 +37,7 @@
  *  set ourselves as the delegate so that we can get notified when the forms have been
  *  completed and that the data can be added into the item
  */
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"embed"])
     {
         AddItemFormViewController *vc1 = [[AddItemFormViewController alloc] initWithNibName:@"AddItemFormViewController"
@@ -60,12 +58,11 @@
     }
 }
 
-- (BOOL)prefersStatusBarHidden {return YES;}
+-(BOOL)prefersStatusBarHidden {return YES;}
 
 #pragma mark UIImagePickerControllerDelegate
 
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     [picker dismissViewControllerAnimated:YES
                                completion:^{
@@ -74,12 +71,9 @@
                                }];
 }
 
--(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+-(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [[picker presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
 }
-
-
 
 #pragma mark FormViewControllerDelegate methods
 
@@ -89,8 +83,7 @@
  *  There are 2 forms responsible for different tasks.
  */
 
--(void) didObtainDataFromFormViewControllerWithIndex:(int)index
-{
+-(void) didObtainDataFromFormViewControllerWithIndex:(int)index {
     switch (index)
     {
         case 0: //Responsible for price, category and size

@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "ShippingOrder.h"
-#import "Item.h"
+#import "ModelController.h"
 
 @protocol CreateShippingOrderDelegate <NSObject>
 
 @required
+
 -(void) userDidCancelShippingOrder:(ShippingOrder *) shippingOrder;
 -(void) didCreateNewShippingOrder:(ShippingOrder *) shippingOrder;
 
@@ -21,12 +21,10 @@
 
 @interface CreateShippingOrderViewController : UIViewController <NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *waitingItemsFetchedController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) id<CreateShippingOrderDelegate> delegate;
+
 @property (weak, nonatomic) ShippingOrder *shippingOrder;
 
 @property (weak, nonatomic) IBOutlet UILabel *itemsToShipLabel;
