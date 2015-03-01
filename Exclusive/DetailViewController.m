@@ -192,11 +192,7 @@
     
     Item * theItem = [self.batch.items.allObjects objectAtIndex:indexPath.row];
     
-    cell.brandLabel.text = theItem.brand;
-    cell.sizeLabel.text = theItem.size;
-    cell.priceLabel.text = [NSString stringWithFormat:@"$%@", theItem.price_paid];
-    cell.imageView.image = [UIImage imageWithData:theItem.image];
-    cell.imageView.contentMode  = UIViewContentModeScaleAspectFit;
+    [cell configureSelfWithItem:theItem];
     
     return cell;
 }

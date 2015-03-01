@@ -265,6 +265,8 @@
     // Since Core-data doesnt support enums natively.......
     shippingOrder.status = [NSNumber numberWithInt:ORDER_PROCESSING];
     
+    shippingOrder.date_created = [NSDate date];
+    
     return shippingOrder;
 }
 
