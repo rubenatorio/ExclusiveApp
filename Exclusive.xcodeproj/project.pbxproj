@@ -40,7 +40,6 @@
 		E082DB961A9C305700FBA8D7 /* ViewAllOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB951A9C305700FBA8D7 /* ViewAllOrdersViewController.m */; };
 		E082DB9E1A9D1FF200FBA8D7 /* add photo button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DB9B1A9D1FF200FBA8D7 /* add photo button@2x.png */; };
 		E082DB9F1A9D1FF200FBA8D7 /* Graph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DB9C1A9D1FF200FBA8D7 /* Graph@2x.png */; };
-		E082DBA31A9D2E0300FBA8D7 /* ShippingOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBA21A9D2E0300FBA8D7 /* ShippingOrder.m */; };
 		E082DBA91A9D96FF00FBA8D7 /* Black button bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBA51A9D96FF00FBA8D7 /* Black button bar@2x.png */; };
 		E082DBAA1A9D96FF00FBA8D7 /* Item Image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBA61A9D96FF00FBA8D7 /* Item Image@2x.png */; };
 		E082DBAB1A9D96FF00FBA8D7 /* Label Container@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBA71A9D96FF00FBA8D7 /* Label Container@2x.png */; };
@@ -54,6 +53,12 @@
 		E082DBBD1A9EC06D00FBA8D7 /* selectedButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBBC1A9EC06D00FBA8D7 /* selectedButton@2x.png */; };
 		E082DBC11A9FE7D300FBA8D7 /* Logo Black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBC01A9FE7D300FBA8D7 /* Logo Black@2x.png */; };
 		E082DBC61AA0308600FBA8D7 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBC51AA0308600FBA8D7 /* ModelController.m */; };
+		E082DBCA1AA17A2800FBA8D7 /* AcknowledgeOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBC91AA17A2800FBA8D7 /* AcknowledgeOrderViewController.m */; };
+		E082DBCE1AA28C1B00FBA8D7 /* logo white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E082DBCD1AA28C1B00FBA8D7 /* logo white@2x.png */; };
+		E082DBD11AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBD01AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m */; };
+		E082DBD51AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBD41AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m */; };
+		E082DBD81AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBD71AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m */; };
+		E082DBDB1AA2ACAF00FBA8D7 /* ShippingOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBDA1AA2ACAF00FBA8D7 /* ShippingOrder.m */; };
 		E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */; };
 		E9CAA9F41A945A4C00DBCC87 /* Checked Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */; };
 /* End PBXBuildFile section */
@@ -121,8 +126,6 @@
 		E082DB951A9C305700FBA8D7 /* ViewAllOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewAllOrdersViewController.m; sourceTree = "<group>"; };
 		E082DB9B1A9D1FF200FBA8D7 /* add photo button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add photo button@2x.png"; sourceTree = "<group>"; };
 		E082DB9C1A9D1FF200FBA8D7 /* Graph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Graph@2x.png"; sourceTree = "<group>"; };
-		E082DBA11A9D2E0300FBA8D7 /* ShippingOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingOrder.h; sourceTree = "<group>"; };
-		E082DBA21A9D2E0300FBA8D7 /* ShippingOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingOrder.m; sourceTree = "<group>"; };
 		E082DBA51A9D96FF00FBA8D7 /* Black button bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black button bar@2x.png"; sourceTree = "<group>"; };
 		E082DBA61A9D96FF00FBA8D7 /* Item Image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Item Image@2x.png"; sourceTree = "<group>"; };
 		E082DBA71A9D96FF00FBA8D7 /* Label Container@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Label Container@2x.png"; sourceTree = "<group>"; };
@@ -137,6 +140,17 @@
 		E082DBC01A9FE7D300FBA8D7 /* Logo Black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Black@2x.png"; sourceTree = "<group>"; };
 		E082DBC41AA0308600FBA8D7 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
 		E082DBC51AA0308600FBA8D7 /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		E082DBC81AA17A2800FBA8D7 /* AcknowledgeOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcknowledgeOrderViewController.h; sourceTree = "<group>"; };
+		E082DBC91AA17A2800FBA8D7 /* AcknowledgeOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcknowledgeOrderViewController.m; sourceTree = "<group>"; };
+		E082DBCD1AA28C1B00FBA8D7 /* logo white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo white@2x.png"; sourceTree = "<group>"; };
+		E082DBCF1AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwaitingConfirmationCollectionViewCell.h; sourceTree = "<group>"; };
+		E082DBD01AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwaitingConfirmationCollectionViewCell.m; sourceTree = "<group>"; };
+		E082DBD31AA2A77F00FBA8D7 /* BatchDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchDetailTableViewCell.h; sourceTree = "<group>"; };
+		E082DBD41AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchDetailTableViewCell.m; sourceTree = "<group>"; };
+		E082DBD61AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingOrderTableViewCell.h; sourceTree = "<group>"; };
+		E082DBD71AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingOrderTableViewCell.m; sourceTree = "<group>"; };
+		E082DBD91AA2ACAF00FBA8D7 /* ShippingOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShippingOrder.h; path = ../ShippingOrder.h; sourceTree = "<group>"; };
+		E082DBDA1AA2ACAF00FBA8D7 /* ShippingOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShippingOrder.m; path = ../ShippingOrder.m; sourceTree = "<group>"; };
 		E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
 		E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Inactive.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +188,8 @@
 			children = (
 				E0447C551A9290D9008AE13B /* DetailCollectionViewCell.h */,
 				E0447C561A9290D9008AE13B /* DetailCollectionViewCell.m */,
+				E082DBCF1AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.h */,
+				E082DBD01AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m */,
 			);
 			name = UICollectionViewCells;
 			sourceTree = "<group>";
@@ -212,6 +228,7 @@
 		E074ACE91A8824C700CC037F = {
 			isa = PBXGroup;
 			children = (
+				E082DBCD1AA28C1B00FBA8D7 /* logo white@2x.png */,
 				E074ACF41A8824C700CC037F /* Exclusive */,
 				E074AD141A8824C700CC037F /* ExclusiveTests */,
 				E074ACF31A8824C700CC037F /* Products */,
@@ -303,6 +320,7 @@
 			children = (
 				E082DBC01A9FE7D300FBA8D7 /* Logo Black@2x.png */,
 				E082DB901A9C2A1C00FBA8D7 /* Custom Segues */,
+				E082DBD21AA2A74F00FBA8D7 /* UITableViewCells */,
 				E0447C541A9290BB008AE13B /* UICollectionViewCells */,
 				E01BC0181A8B19AD00D1568A /* Assets */,
 				E074AD051A8824C700CC037F /* Main.storyboard */,
@@ -333,6 +351,8 @@
 				E082DB921A9C303B00FBA8D7 /* CreateShippingOrderViewController.m */,
 				E082DB941A9C305700FBA8D7 /* ViewAllOrdersViewController.h */,
 				E082DB951A9C305700FBA8D7 /* ViewAllOrdersViewController.m */,
+				E082DBC81AA17A2800FBA8D7 /* AcknowledgeOrderViewController.h */,
+				E082DBC91AA17A2800FBA8D7 /* AcknowledgeOrderViewController.m */,
 			);
 			name = "Ship Inventory";
 			sourceTree = "<group>";
@@ -393,14 +413,25 @@
 		E082DBC71AA12DBA00FBA8D7 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				E082DBA11A9D2E0300FBA8D7 /* ShippingOrder.h */,
-				E082DBA21A9D2E0300FBA8D7 /* ShippingOrder.m */,
+				E082DBD91AA2ACAF00FBA8D7 /* ShippingOrder.h */,
+				E082DBDA1AA2ACAF00FBA8D7 /* ShippingOrder.m */,
 				E082DB821A9AE24A00FBA8D7 /* Item.h */,
 				E082DB831A9AE24A00FBA8D7 /* Item.m */,
 				E082DB851A9AF7C900FBA8D7 /* Batch.h */,
 				E082DB861A9AF7C900FBA8D7 /* Batch.m */,
 			);
 			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		E082DBD21AA2A74F00FBA8D7 /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E082DBD31AA2A77F00FBA8D7 /* BatchDetailTableViewCell.h */,
+				E082DBD41AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m */,
+				E082DBD61AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.h */,
+				E082DBD71AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m */,
+			);
+			name = UITableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +523,7 @@
 				E082DBBB1A9EBC2300FBA8D7 /* exclusive@2x.png in Resources */,
 				E01BC0161A8B19A300D1568A /* T-Shirts@2x.png in Resources */,
 				E082DBC11A9FE7D300FBA8D7 /* Logo Black@2x.png in Resources */,
+				E082DBCE1AA28C1B00FBA8D7 /* logo white@2x.png in Resources */,
 				E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */,
 				E0447C671A93DC52008AE13B /* AddItemForm2ViewController.xib in Resources */,
 				E01BC0121A8B19A300D1568A /* Category@2x.png in Resources */,
@@ -532,17 +564,21 @@
 			files = (
 				E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */,
 				E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */,
-				E082DBA31A9D2E0300FBA8D7 /* ShippingOrder.m in Sources */,
 				E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */,
 				E082DB961A9C305700FBA8D7 /* ViewAllOrdersViewController.m in Sources */,
 				E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */,
+				E082DBCA1AA17A2800FBA8D7 /* AcknowledgeOrderViewController.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
 				E082DBC61AA0308600FBA8D7 /* ModelController.m in Sources */,
 				E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
+				E082DBD11AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m in Sources */,
 				E082DB931A9C303B00FBA8D7 /* CreateShippingOrderViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
+				E082DBD81AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m in Sources */,
+				E082DBDB1AA2ACAF00FBA8D7 /* ShippingOrder.m in Sources */,
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
+				E082DBD51AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m in Sources */,
 				E082DB8F1A9C29F700FBA8D7 /* ShipInventoryViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,

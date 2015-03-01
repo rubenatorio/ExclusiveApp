@@ -40,4 +40,13 @@
     }
 }
 
+-(void) configureSelfWithItem:(Item *) theItem {
+    
+    self.brandLabel.text = theItem.brand;
+    self.sizeLabel.text = theItem.size;
+    self.priceLabel.text = [NSString stringWithFormat:@"$%@", theItem.price_paid];
+    self.imageView.image = [UIImage imageWithData:theItem.image];
+    self.imageView.contentMode  = UIViewContentModeScaleAspectFit;
+}
+
 @end

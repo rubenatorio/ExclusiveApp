@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "ModelController.h"
+#import "BatchDetailTableViewCell.h"
 
 @interface MasterViewController ()
 
@@ -94,9 +95,14 @@
     return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BatchDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    Batch *batch = [_batchResultsController objectAtIndexPath:indexPath];
+    
+    [cell configureSelfWithBatch:batch];
+     
     return cell;
 }
 
@@ -107,19 +113,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete)
         [_modelController removeBatchAtIndexPath:indexPath];
-}
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    
-    Batch *batch = [_batchResultsController objectAtIndexPath:indexPath];
-    
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:batch.date
-                                                          dateStyle:NSDateFormatterLongStyle
-                                                          timeStyle:NSDateFormatterNoStyle];
-    
-    NSString *amountString = [@" @ $" stringByAppendingString:[batch.amount_spent stringValue]];
-    
-    cell.textLabel.text = [dateString stringByAppendingString: amountString];
 }
 
 #pragma mark - UIAlertView Delegate
@@ -182,5 +175,14 @@
             [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    Batch *batch = [_batchResultsController objectAtIndexPath:indexPath];
+    
+    BatchDetailTableViewCell *theCell = (BatchDetailTableViewCell *) cell;
+    
+    [theCell configureSelfWithBatch:batch];
 }
 @end

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemFormViewController">
+            <connections>
+                <outlet property="continueButton" destination="KKF-YK-ard" id="1YW-wW-hyc"/>
+                <outlet property="genderSegmentedControl" destination="K2K-sA-u44" id="Acy-7S-D7a"/>
+                <outlet property="priceTextField" destination="1tD-tT-P7L" id="I2v-Al-mRw"/>
+                <outlet property="sizeSegmentedControl" destination="uxz-cL-XFp" id="mEr-4P-de1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" textAlignment="center" minimumFontSize="17" background="textViewRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="1tD-tT-P7L">
+                    <rect key="frame" x="84" y="30" width="202" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                </textField>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-cL-XFp">
+                    <rect key="frame" x="84" y="84" width="202" height="29"/>
+                    <segments>
+                        <segment title="XS"/>
+                        <segment title="S"/>
+                        <segment title="M"/>
+                        <segment title="L"/>
+                        <segment title="XL"/>
+                    </segments>
+                    <color key="tintColor" red="0.21792990331491713" green="0.21792990331491713" blue="0.21792990331491713" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K2K-sA-u44">
+                    <rect key="frame" x="124" y="133" width="117" height="29"/>
+                    <segments>
+                        <segment title="Male"/>
+                        <segment title="Female"/>
+                    </segments>
+                    <color key="tintColor" red="0.21792990330000001" green="0.21792990330000001" blue="0.21792990330000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKF-YK-ard">
+                    <rect key="frame" x="175" y="190" width="25" height="25"/>
+                    <state key="normal" image="Checked Active.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="continue:" destination="-1" eventType="touchUpInside" id="LQ8-m2-W6m"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-185.5" y="383.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Checked Active.png" width="41" height="40"/>
+        <image name="textViewRect.png" width="295" height="52"/>
+    </resources>
+</document>

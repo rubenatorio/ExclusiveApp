@@ -8,6 +8,7 @@
 
 #import "ViewAllOrdersViewController.h"
 #import "ShippingOrder.h"
+#import "ShippingOrderTableViewCell.h"
 
 @interface ViewAllOrdersViewController ()
 
@@ -28,11 +29,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShippingOrderCell" forIndexPath:indexPath];
+    
+    ShippingOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShippingOrderCell" forIndexPath:indexPath];
     
     ShippingOrder *shippingOrder = [self.shippingOrdersFetchedController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = [@" @ $" stringByAppendingString:[shippingOrder.order_value stringValue]];
+    [cell configureSelfWithShippingOrder:shippingOrder];
     
     return cell;
 }

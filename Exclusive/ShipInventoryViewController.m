@@ -8,6 +8,7 @@
 
 #import "ShipInventoryViewController.h"
 #import "ViewAllOrdersViewController.h"
+#import "AcknowledgeOrderViewController.h"
 #import "AppDelegate.h"
 #import "ModelController.h"
 
@@ -26,7 +27,7 @@
 
 @implementation ShipInventoryViewController
 
--(void)fetchData {
+-(void) fetchData {
     
     _shippedOrders = [_modelController fetchShippedOrders];
     _awaitingConfirmation = [_modelController fetchAwaitingConfirmation];
@@ -36,6 +37,7 @@
 }
 
 -(void) viewDidLoad {
+    
     [super viewDidLoad];
     
     //Obtain the batch FetchedResultsController from the model controller
@@ -69,10 +71,10 @@
                                                object:_modelController];
     
     if ([_awaitingConfirmation count] > 0)
-        [self receive];
+        [self acknowledgeOrder];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"CreateShippingOrder"])
     {
         
@@ -137,10 +139,10 @@
     
     NSLog(@"NOTIFICATION RECEIVED");
     
-    [self aknowledgeOrder];
+    [self acknowledgeOrder];
 }
 
--(void) aknowledgeOrder {
+-(void) acknowledgeOrder {
     
     UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithTitle:@"Receive"
                                                                 style:UIBarButtonItemStylePlain
@@ -151,6 +153,27 @@
 
 -(void) receive {
     
+    AcknowledgeOrderViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AcknowledgeOrderViewController"];
+    
+    vc.delegate = self;
+    
+    [vc setAwaitingConfirmation:[_modelController fetchAwaitingConfirmation]];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
+#pragma mark AcknowledgeOrderViewControllerDelegate
+
+-(void) didFinish {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) userCancelled {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 @end

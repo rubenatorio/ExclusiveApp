@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CreateShippingOrderViewController.h"
+#import "AcknowledgeOrderViewController.h"
 
 
-@interface ShipInventoryViewController : UIViewController <NSFetchedResultsControllerDelegate, CreateShippingOrderDelegate>
+@interface ShipInventoryViewController : UIViewController <NSFetchedResultsControllerDelegate, CreateShippingOrderDelegate, AcknowledgeOrderViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *shippedOrdersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *awatingConfirmationLabel;
