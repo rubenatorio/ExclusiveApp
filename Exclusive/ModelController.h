@@ -34,6 +34,7 @@
 -(void) publishBatch:(Batch*) batch;
 -(void) deleteBatch:(Batch *) batch;
 -(void) shippedOrder:(ShippingOrder *) shippingOrder;
+-(void) acknowledgeShippingOrder:(ShippingOrder *) shippingOrder;
 -(void) addItem:(Item*) theItem toBatch:(Batch*) batch;
 -(void) deleteShippingOrder:(ShippingOrder *) shippingOrder;
 -(void) createNewBatchWithPrice:(NSNumber *) amountSpent;

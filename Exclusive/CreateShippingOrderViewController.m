@@ -36,9 +36,18 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+    
     _modelController = [ModelController sharedController];
     
     _waitingItemsResultsController = [_modelController waitingItemsFetchedController];
+    
+    NSError *error;
+    
+    if (![_waitingItemsResultsController performFetch:&error]) {
+        
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
     
     [self.collectionView reloadData];
     
@@ -68,6 +77,7 @@
 }
 
 -(void)userConfirmed {
+    
     NSArray *selectedItemsIndexes = [self.collectionView indexPathsForSelectedItems];
     
     double itemsPrice;
@@ -136,6 +146,7 @@
 }
 
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     // The main storyboard contains a prototype cell class (See DetailCell class)
     
     DetailCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell"

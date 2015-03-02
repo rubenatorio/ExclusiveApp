@@ -98,10 +98,8 @@
  */
 
 - (IBAction)closeReceipt:(id)sender {
-    UIAlertController * alert=   [UIAlertController
-                                 alertControllerWithTitle:@"Publish"
-                                 message:@"are you sure you want to close this receipt?"
-                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertController * alert;
     
     UIAlertAction* ok = [UIAlertAction
                          actionWithTitle:@"Publish"
@@ -122,9 +120,41 @@
                                  
                              }];
     
+    UIAlertAction* error = [UIAlertAction
+                             actionWithTitle:@"Ok"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
     
-    [alert addAction:ok];
-    [alert addAction:cancel];
+    NSString * title, * message;
+    
+    alert = [UIAlertController alertControllerWithTitle:nil
+                                                message:nil
+                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    if ([self.batch.items count] > 0)
+    {
+        [alert addAction:ok];
+        [alert addAction:cancel];
+        
+        title = @"Publish Receipt";
+        message = @"Are you sure you want to do this?";
+    }
+    
+    else
+    {
+        [alert addAction:error];
+        
+        title = @"Error";
+        message = @"You cannot publish and empty receipt!";
+    }
+    
+    alert.title = title;
+    alert.message = message;
+    
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -137,6 +167,10 @@
  */
 
 -(void) publish {
+    
+    if ([self.collectionView.indexPathsForSelectedItems count] > 0)
+         [self.collectionView deselectItemAtIndexPath:[self.collectionView.indexPathsForSelectedItems objectAtIndex:0] animated:NO];
+    
     [_modelController publishBatch:self.batch];
     
     [self checkLock];

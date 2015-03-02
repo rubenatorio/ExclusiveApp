@@ -66,6 +66,7 @@
     
     batch.date = [NSDate date];
     batch.amount_spent = amountSpent;
+    batch.open = [NSNumber numberWithBool:YES];
     
     [self saveLocalContext];
 }
@@ -277,6 +278,21 @@
     [self saveLocalContext];
 }
 
+-(void) acknowledgeShippingOrder:(ShippingOrder *) shippingOrder {
+    
+    shippingOrder.status = [NSNumber numberWithInt:ORDER_RECEIVED];
+    
+    for (Item *theItem in shippingOrder.items)
+        theItem.status = [NSNumber numberWithInt:READY];
+    
+    [self saveLocalContext];
+    
+    //boradcast notification that order was received
+    
+    [self didAcknowledgeOrder:shippingOrder];
+    
+}
+
 #pragma mark FetchResult Templates
 
 -(NSArray *) fetchShippedOrders {
@@ -297,12 +313,23 @@
 
 -(void) shippedOrder:(ShippingOrder *) shippingOrder {
     
-    NSLog(@"POSTING NOTIFICATION");
+    NSLog(@"POSTING NOTIFICATION SHIPPING ORDER");
     
     NSDictionary *dataDict = [NSDictionary dictionaryWithObject:shippingOrder
                                                          forKey:@"shippingOrder"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShippingOrderShipped" object:self userInfo:dataDict];
+    
+}
+
+-(void) didAcknowledgeOrder:(ShippingOrder *) shippingOrder {
+    
+    NSLog(@"POSTING NOTIFICATION ACKNOWLEDGED ORDER");
+    
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:shippingOrder
+                                                         forKey:@"shippingOrder"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShippingOrderAcknowledged" object:self userInfo:dataDict];
     
 }
 

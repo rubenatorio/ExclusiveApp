@@ -27,13 +27,28 @@
 
 @implementation ShipInventoryViewController
 
+-(void) receive {
+    
+    AcknowledgeOrderViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AcknowledgeOrderViewController"];
+    
+    vc.delegate = self;
+    
+    [vc setAwaitingConfirmation:[_modelController fetchAwaitingConfirmation]];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
 -(void) fetchData {
     
-    _shippedOrders = [_modelController fetchShippedOrders];
-    _awaitingConfirmation = [_modelController fetchAwaitingConfirmation];
-    _shippableItems = [_modelController fetchShippableItems];
-    
-    _dataChanged = NO;
+    if (_dataChanged)
+    {
+        _shippedOrders = [_modelController fetchShippedOrders];
+        _awaitingConfirmation = [_modelController fetchAwaitingConfirmation];
+        _shippableItems = [_modelController fetchShippableItems];
+        
+        _dataChanged = NO;
+    }
 }
 
 -(void) viewDidLoad {
@@ -48,13 +63,25 @@
     
     _shippingOrderResultsController.delegate = self;
     
+    _dataChanged = YES;
+    
     [self fetchData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orderWasShipped:)
+                                                 name:@"ShippingOrderShipped"
+                                               object:_modelController];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orderWasAcknowledged:)
+                                                 name:@"ShippingOrderAcknowledged"
+                                               object:_modelController];
+
 }
 
 -(void) updateLabels {
     
-    if (_dataChanged)
-        [self fetchData];
+    [self fetchData];
     
     self.shippedOrdersLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[_shippedOrders count]];
     self.awatingConfirmationLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[_awaitingConfirmation count]];
@@ -64,27 +91,10 @@
 -(void) viewWillAppear:(BOOL)animated {
     
     [self updateLabels];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(orderWasShipped:)
-                                                 name:@"ShippingOrderShipped"
-                                               object:_modelController];
-    
-    if ([_awaitingConfirmation count] > 0)
-        [self acknowledgeOrder];
+    [self acknowledgeOrder];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"CreateShippingOrder"])
-    {
-        
-        ShippingOrder *shippingOrder = [_modelController createShippingOrder];
-        
-        CreateShippingOrderViewController *vc = (CreateShippingOrderViewController*)[segue destinationViewController];
-        
-        vc.delegate = self;
-        vc.shippingOrder = shippingOrder;
-    }
     
     if ([[segue identifier] isEqualToString:@"ViewAllShippingOrders"])
     {
@@ -93,6 +103,43 @@
         vc.shippingOrdersFetchedController = _shippingOrderResultsController;
     }
 }
+
+-(IBAction)createShippingOrder:(id)sender {
+    
+    [self fetchData];
+    
+    if ([_shippableItems count] <= 0)
+        [self alertError];
+    
+    else
+    {
+        ShippingOrder *shippingOrder = [_modelController createShippingOrder];
+        
+        CreateShippingOrderViewController *vc = (CreateShippingOrderViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"CreateShippingOrderViewController"];
+        
+        vc.delegate = self;
+        vc.shippingOrder = shippingOrder;
+        
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    
+}
+
+-(void) alertError {
+    
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                    message:@"No items to ship!"
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* error = [UIAlertAction
+                            actionWithTitle:@"Ok"
+                            style:UIAlertActionStyleDefault
+                            handler:nil];
+    
+    [alert addAction:error];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 #pragma mark CreateShippingOrderDelegate
 
@@ -133,6 +180,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 #pragma mark Handle NSNotifications
 
 -(void) orderWasShipped: (NSNotification *) notification {
@@ -142,30 +190,39 @@
     [self acknowledgeOrder];
 }
 
--(void) acknowledgeOrder {
+-(void) orderWasAcknowledged: (NSNotification *) notification {
     
-    UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithTitle:@"Receive"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(receive)];
-    [self.navigationItem setRightBarButtonItem:button];
+    NSLog(@" ORDER WAS RECEIVED!!!!!!!!!!!");
+    
+    _dataChanged = YES;
+    
+    [self updateLabels];
+    
 }
 
--(void) receive {
+-(void) acknowledgeOrder {
     
-    AcknowledgeOrderViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AcknowledgeOrderViewController"];
+    [self fetchData];
     
-    vc.delegate = self;
-    
-    [vc setAwaitingConfirmation:[_modelController fetchAwaitingConfirmation]];
-    
-    [self presentViewController:vc animated:YES completion:nil];
-    
+    if ([_awaitingConfirmation count] > 0)
+    {
+        
+        UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"Receive(%lu)" , (unsigned long)[_awaitingConfirmation count]]
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(receive)];
+        [self.navigationItem setRightBarButtonItem:button];
+    }
+    else
+        [self.navigationItem setRightBarButtonItem:nil];
 }
+
 
 #pragma mark AcknowledgeOrderViewControllerDelegate
 
--(void) didFinish {
+-(void) didAcknowledgeShippingOrder:(ShippingOrder *)shippingOrder {
+    
+    [_modelController acknowledgeShippingOrder:shippingOrder];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

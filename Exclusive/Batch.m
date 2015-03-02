@@ -9,7 +9,6 @@
 #import "Batch.h"
 #import "Item.h"
 
-
 @implementation Batch
 
 @dynamic amount_spent;

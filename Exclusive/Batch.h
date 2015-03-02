@@ -11,6 +11,8 @@
 
 @class Item;
 
+typedef enum { CLOSED, OPEN } batchState;
+
 @interface Batch : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * amount_spent;
