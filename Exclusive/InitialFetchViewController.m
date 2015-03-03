@@ -7,6 +7,7 @@
 //
 
 #import "InitialFetchViewController.h"
+#import "ModelController.h"
 
 @interface InitialFetchViewController ()
 
@@ -29,32 +30,14 @@
 }
 
 -(void) fetchDataFromParse {
-    
-    // Fetch all ITEMS, BATCHES, SHIPPING ORDERS
-    // Commit into local context
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Item"];
-    [query whereKeyExists:@"objectId"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error)
-        {
-            NSLog(@"Succesfully Retreived %lu items" , (unsigned long)[objects count]);
-            
-            NSLog(@"%@", [objects description]);
-            
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator setHidden:YES];
-            
-            [self.continueButton setHidden:NO];
-            
-        }
-        else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
+        
+    [[ModelController sharedController] fetchDataFromParseCompletition:^(BOOL success){
+        
+        if (success)
+            [self.delegate didFinishFetchingData];
+        else
+            abort();
     }];
-    
 }
 
 @end

@@ -2,7 +2,7 @@
 //  ShippingOrder.m
 //  Exclusive
 //
-//  Created by Ruben Flores on 2/28/15.
+//  Created by Ruben Flores on 3/1/15.
 //  Copyright (c) 2015 Ruben Flores. All rights reserved.
 //
 
@@ -12,10 +12,11 @@
 
 @implementation ShippingOrder
 
+@dynamic date_created;
 @dynamic date_shipped;
 @dynamic order_value;
 @dynamic status;
-@dynamic date_created;
+@dynamic parse_id;
 @dynamic items;
 
 @end

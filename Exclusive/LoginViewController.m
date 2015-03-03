@@ -78,7 +78,6 @@
 }
 
 -(void)handleSwipe:(UITapGestureRecognizer *) sender {
-    NSLog(@"UP Swipe");
     
     [self authenticate];
 }
@@ -105,6 +104,7 @@
                                                 [errorAlertView show];
                                             }
                                         }];
+   // [self performSegueWithIdentifier:@"UserAuthenticated" sender:self];
 }
 
 #pragma mark InitialFetchViewControllerDelegate

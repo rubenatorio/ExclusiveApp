@@ -2,7 +2,7 @@
 //  Batch.h
 //  Exclusive
 //
-//  Created by Ruben Flores on 2/22/15.
+//  Created by Ruben Flores on 3/1/15.
 //  Copyright (c) 2015 Ruben Flores. All rights reserved.
 //
 
@@ -11,14 +11,13 @@
 
 @class Item;
 
-typedef enum { CLOSED, OPEN } batchState;
-
 @interface Batch : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * amount_spent;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSNumber * total_items;
 @property (nonatomic, retain) NSNumber * open;
+@property (nonatomic, retain) NSNumber * total_items;
+@property (nonatomic, retain) NSString * parse_id;
 @property (nonatomic, retain) NSSet *items;
 @end
 

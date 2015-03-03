@@ -40,6 +40,9 @@
 		E02FB9DE1AA3DF3F00FAD390 /* Popup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E02FB9DD1AA3DF3F00FAD390 /* Popup@2x.png */; };
 		E02FB9E11AA3E0A800FAD390 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02FB9E01AA3E0A800FAD390 /* LoginViewController.m */; };
 		E02FB9E41AA4045500FAD390 /* InitialFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02FB9E31AA4045500FAD390 /* InitialFetchViewController.m */; };
+		E02FB9E81AA4339F00FAD390 /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E02FB9E71AA4339F00FAD390 /* Batch.m */; };
+		E02FB9EE1AA4339F00FAD390 /* ShippingOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E02FB9ED1AA4339F00FAD390 /* ShippingOrder.m */; };
+		E02FB9F11AA5741B00FAD390 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E02FB9F01AA5741B00FAD390 /* Item.m */; };
 		E0447C581A9290D9008AE13B /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C561A9290D9008AE13B /* DetailCollectionViewCell.m */; };
 		E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0447C5C1A93CAE4008AE13B /* AddItemFormViewController.m */; };
 		E0447C5F1A93CAE4008AE13B /* AddItemFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0447C5D1A93CAE4008AE13B /* AddItemFormViewController.xib */; };
@@ -61,8 +64,6 @@
 		E074AD091A8824C700CC037F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E074AD081A8824C700CC037F /* Images.xcassets */; };
 		E074AD0C1A8824C700CC037F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E074AD0A1A8824C700CC037F /* LaunchScreen.xib */; };
 		E074AD181A8824C700CC037F /* ExclusiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E074AD171A8824C700CC037F /* ExclusiveTests.m */; };
-		E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB831A9AE24A00FBA8D7 /* Item.m */; };
-		E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB861A9AF7C900FBA8D7 /* Batch.m */; };
 		E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */; };
 		E082DB8F1A9C29F700FBA8D7 /* ShipInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB8E1A9C29F700FBA8D7 /* ShipInventoryViewController.m */; };
 		E082DB931A9C303B00FBA8D7 /* CreateShippingOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DB921A9C303B00FBA8D7 /* CreateShippingOrderViewController.m */; };
@@ -87,7 +88,6 @@
 		E082DBD11AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBD01AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m */; };
 		E082DBD51AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBD41AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m */; };
 		E082DBD81AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBD71AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m */; };
-		E082DBDB1AA2ACAF00FBA8D7 /* ShippingOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E082DBDA1AA2ACAF00FBA8D7 /* ShippingOrder.m */; };
 		E9CAA9F31A945A4C00DBCC87 /* Checked Active.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */; };
 		E9CAA9F41A945A4C00DBCC87 /* Checked Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */; };
 /* End PBXBuildFile section */
@@ -140,6 +140,13 @@
 		E02FB9E01AA3E0A800FAD390 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E02FB9E21AA4045500FAD390 /* InitialFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialFetchViewController.h; sourceTree = "<group>"; };
 		E02FB9E31AA4045500FAD390 /* InitialFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialFetchViewController.m; sourceTree = "<group>"; };
+		E02FB9E51AA4335600FAD390 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		E02FB9E61AA4339F00FAD390 /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
+		E02FB9E71AA4339F00FAD390 /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
+		E02FB9EC1AA4339F00FAD390 /* ShippingOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingOrder.h; sourceTree = "<group>"; };
+		E02FB9ED1AA4339F00FAD390 /* ShippingOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingOrder.m; sourceTree = "<group>"; };
+		E02FB9EF1AA5741B00FAD390 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		E02FB9F01AA5741B00FAD390 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		E0447C551A9290D9008AE13B /* DetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionViewCell.h; sourceTree = "<group>"; };
 		E0447C561A9290D9008AE13B /* DetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionViewCell.m; sourceTree = "<group>"; };
 		E0447C5B1A93CAE4008AE13B /* AddItemFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemFormViewController.h; sourceTree = "<group>"; };
@@ -172,10 +179,6 @@
 		E074AD111A8824C700CC037F /* ExclusiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExclusiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E074AD161A8824C700CC037F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E074AD171A8824C700CC037F /* ExclusiveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExclusiveTests.m; sourceTree = "<group>"; };
-		E082DB821A9AE24A00FBA8D7 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../Item.h; sourceTree = "<group>"; };
-		E082DB831A9AE24A00FBA8D7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = ../Item.m; sourceTree = "<group>"; };
-		E082DB851A9AF7C900FBA8D7 /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
-		E082DB861A9AF7C900FBA8D7 /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
 		E082DB881A9C0CAB00FBA8D7 /* PopSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopSegue.h; sourceTree = "<group>"; };
 		E082DB891A9C0CAB00FBA8D7 /* PopSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopSegue.m; sourceTree = "<group>"; };
 		E082DB8D1A9C29F700FBA8D7 /* ShipInventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipInventoryViewController.h; sourceTree = "<group>"; };
@@ -209,8 +212,6 @@
 		E082DBD41AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchDetailTableViewCell.m; sourceTree = "<group>"; };
 		E082DBD61AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingOrderTableViewCell.h; sourceTree = "<group>"; };
 		E082DBD71AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingOrderTableViewCell.m; sourceTree = "<group>"; };
-		E082DBD91AA2ACAF00FBA8D7 /* ShippingOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShippingOrder.h; path = ../ShippingOrder.h; sourceTree = "<group>"; };
-		E082DBDA1AA2ACAF00FBA8D7 /* ShippingOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShippingOrder.m; path = ../ShippingOrder.m; sourceTree = "<group>"; };
 		E9CAA9F11A945A4C00DBCC87 /* Checked Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Active.png"; sourceTree = "<group>"; };
 		E9CAA9F21A945A4C00DBCC87 /* Checked Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Inactive.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -564,12 +565,13 @@
 		E082DBC71AA12DBA00FBA8D7 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				E082DBD91AA2ACAF00FBA8D7 /* ShippingOrder.h */,
-				E082DBDA1AA2ACAF00FBA8D7 /* ShippingOrder.m */,
-				E082DB821A9AE24A00FBA8D7 /* Item.h */,
-				E082DB831A9AE24A00FBA8D7 /* Item.m */,
-				E082DB851A9AF7C900FBA8D7 /* Batch.h */,
-				E082DB861A9AF7C900FBA8D7 /* Batch.m */,
+				E02FB9EF1AA5741B00FAD390 /* Item.h */,
+				E02FB9F01AA5741B00FAD390 /* Item.m */,
+				E02FB9EC1AA4339F00FAD390 /* ShippingOrder.h */,
+				E02FB9ED1AA4339F00FAD390 /* ShippingOrder.m */,
+				E02FB9E61AA4339F00FAD390 /* Batch.h */,
+				E02FB9E71AA4339F00FAD390 /* Batch.m */,
+				E02FB9E51AA4335600FAD390 /* constants.h */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -720,27 +722,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E082DB841A9AE24A00FBA8D7 /* Item.m in Sources */,
 				E0447C661A93DC52008AE13B /* AddItemForm2ViewController.m in Sources */,
 				E0447C6A1A93DEBD008AE13B /* FormViewControllerPrototype.m in Sources */,
 				E082DB961A9C305700FBA8D7 /* ViewAllOrdersViewController.m in Sources */,
-				E082DB871A9AF7C900FBA8D7 /* Batch.m in Sources */,
 				E082DBCA1AA17A2800FBA8D7 /* AcknowledgeOrderViewController.m in Sources */,
 				E02FB9E41AA4045500FAD390 /* InitialFetchViewController.m in Sources */,
+				E02FB9F11AA5741B00FAD390 /* Item.m in Sources */,
 				E01BBFD51A89D57A00D1568A /* AddItemViewController.m in Sources */,
 				E082DBC61AA0308600FBA8D7 /* ModelController.m in Sources */,
 				E02FB9E11AA3E0A800FAD390 /* LoginViewController.m in Sources */,
+				E02FB9E81AA4339F00FAD390 /* Batch.m in Sources */,
 				E082DB8A1A9C0CAB00FBA8D7 /* PopSegue.m in Sources */,
 				E074AD041A8824C700CC037F /* DetailViewController.m in Sources */,
 				E082DBD11AA296F000FBA8D7 /* AwaitingConfirmationCollectionViewCell.m in Sources */,
 				E082DB931A9C303B00FBA8D7 /* CreateShippingOrderViewController.m in Sources */,
 				E01BC0071A8B156400D1568A /* InventoryMenuViewController.m in Sources */,
 				E082DBD81AA2A7B300FBA8D7 /* ShippingOrderTableViewCell.m in Sources */,
-				E082DBDB1AA2ACAF00FBA8D7 /* ShippingOrder.m in Sources */,
 				E0447C5E1A93CAE4008AE13B /* AddItemFormViewController.m in Sources */,
 				E082DBD51AA2A77F00FBA8D7 /* BatchDetailTableViewCell.m in Sources */,
 				E082DB8F1A9C29F700FBA8D7 /* ShipInventoryViewController.m in Sources */,
 				E074AD011A8824C700CC037F /* MasterViewController.m in Sources */,
+				E02FB9EE1AA4339F00FAD390 /* ShippingOrder.m in Sources */,
 				E074ACFE1A8824C700CC037F /* Exclusive.xcdatamodeld in Sources */,
 				E074ACFB1A8824C700CC037F /* AppDelegate.m in Sources */,
 				E074ACF81A8824C700CC037F /* main.m in Sources */,

@@ -4,17 +4,19 @@
         <attribute name="amount_spent" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="open" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="parse_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="total_items" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="batch" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="brand" attributeType="String" syncable="YES"/>
-        <attribute name="category" attributeType="String" syncable="YES"/>
+        <attribute name="category" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="date_purchased" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" attributeType="Binary" defaultValueString="N\A" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="is_new" attributeType="Boolean" minValueString="0" defaultValueString="YES" syncable="YES"/>
         <attribute name="location" attributeType="String" syncable="YES"/>
         <attribute name="on_layaway" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="parse_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price_paid" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="size" attributeType="String" minValueString="0" syncable="YES"/>
         <attribute name="status" attributeType="Integer 16" minValueString="0" maxValueString="3" defaultValueString="0" syncable="YES"/>
@@ -25,6 +27,7 @@
         <attribute name="date_created" attributeType="Date" syncable="YES"/>
         <attribute name="date_shipped" attributeType="Date" syncable="YES"/>
         <attribute name="order_value" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="parse_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="items" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="shippingOrder" inverseEntity="Item" syncable="YES"/>
     </entity>
@@ -33,8 +36,8 @@
     <fetchRequest name="OrdersShipped" entity="ShippingOrder" predicateString="status == 2 OR status == 1"/>
     <fetchRequest name="ReadyToShip" entity="Item" predicateString="status == 1"/>
     <elements>
-        <element name="Batch" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Item" positionX="-225" positionY="-279" width="128" height="225"/>
-        <element name="ShippingOrder" positionX="-495" positionY="-18" width="128" height="118"/>
+        <element name="Batch" positionX="-1566" positionY="-7" width="128" height="133"/>
+        <element name="Item" positionX="-1683" positionY="162" width="128" height="238"/>
+        <element name="ShippingOrder" positionX="-1782" positionY="-169" width="128" height="133"/>
     </elements>
 </model>
