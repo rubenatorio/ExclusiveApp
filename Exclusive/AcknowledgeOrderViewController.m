@@ -7,12 +7,13 @@
 //
 
 #import "AcknowledgeOrderViewController.h"
-#import "ModelController.h"
 #import "AwaitingConfirmationCollectionViewCell.h"
 
 @interface AcknowledgeOrderViewController ()
 
-@property (weak, nonatomic) NSArray * awaitingConfirmation;
+@property (strong, nonatomic) NSArray * awaitingConfirmation;
+
+@property (strong, nonatomic) NSIndexPath * currentIndexPath;
 
 @end
 
@@ -35,6 +36,42 @@
     [self.delegate userCancelled];
 }
 
+- (IBAction)userAcknowledged:(id)sender {
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Confirm"
+                                  message:@"are you sure you want acknowledge?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Acknowledge"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self acknowledge];
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void) acknowledge {
+    
+    [self.delegate didAcknowledgeShippingOrder:[_awaitingConfirmation objectAtIndex:_currentIndexPath.row]];
+}
 
 -(BOOL) prefersStatusBarHidden {
     
@@ -62,23 +99,11 @@
     ShippingOrder *shippingOrder = [_awaitingConfirmation objectAtIndex:indexPath.row];
     
     [cell configureSelfWithShippingOrder:shippingOrder];
+    [cell setColorAtIndex:(int)indexPath.row];
+    
+    _currentIndexPath = indexPath;
     
     return cell;
-}
-
-#pragma mark UICollectionViewDelegate
-
--(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-}
-
--(void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-}
-
--(BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    return YES;
 }
 
 -(void) setAwaitingConfirmation:(NSArray *)awaitingConfirmation

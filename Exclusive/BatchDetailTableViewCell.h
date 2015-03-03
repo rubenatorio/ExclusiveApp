@@ -12,6 +12,11 @@
 
 @interface BatchDetailTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *openLabel;
+
+
 -(void) configureSelfWithBatch:(Batch*) theBatch;
 
 @end

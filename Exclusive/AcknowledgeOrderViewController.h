@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "ModelController.h"
 
 @protocol AcknowledgeOrderViewControllerDelegate <NSObject>
 
--(void) didFinish;
+-(void) didAcknowledgeShippingOrder:(ShippingOrder *) shippingOrder;
 -(void) userCancelled;
 
 @end

@@ -11,15 +11,17 @@
 #import "Batch.h"
 #import "Item.h"
 #import "ShippingOrder.h"
+#import "constants.h"
 
 @protocol ModelControllerGelegate <NSObject>
 
 @end
 
+typedef void (^fetchCompleted)(BOOL finished);
 
 @interface ModelController : NSObject
 
-+ (ModelController*)sharedController;
++(ModelController*)sharedController;
 
 - (Item *)createItemRecord;
 
@@ -30,10 +32,13 @@
 - (NSFetchedResultsController *)waitingItemsFetchedController;
 - (NSFetchedResultsController *)shippingOrderResultsController;
 
+-(void) fetchDataFromParseCompletition:(fetchCompleted) completittion;
+
 -(void) saveLocalContext;
 -(void) publishBatch:(Batch*) batch;
 -(void) deleteBatch:(Batch *) batch;
 -(void) shippedOrder:(ShippingOrder *) shippingOrder;
+-(void) acknowledgeShippingOrder:(ShippingOrder *) shippingOrder;
 -(void) addItem:(Item*) theItem toBatch:(Batch*) batch;
 -(void) deleteShippingOrder:(ShippingOrder *) shippingOrder;
 -(void) createNewBatchWithPrice:(NSNumber *) amountSpent;
@@ -43,5 +48,7 @@
 -(NSArray *) fetchShippedOrders;
 -(NSArray *) fetchAwaitingConfirmation;
 -(NSArray *) fetchShippableItems;
+
+-(NSArray*) registeredObjects;
 
 @end

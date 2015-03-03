@@ -18,10 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
- //   UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-   // MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-    //controller.managedObjectContext = self.managedObjectContext;
+    
+    [Parse setApplicationId:@"7iUtrRDFaSvNhyNKWrTO6vozyo0YKOXOI8C0wcLm"
+                  clientKey:@"RFBJLUnKhGK6Nwv6ZoIIPw3Ui53Vu7UV57R88wXf"];
     return YES;
 }
 
@@ -109,7 +108,7 @@
     if (!coordinator) {
         return nil;
     }
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
 }

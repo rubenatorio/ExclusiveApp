@@ -28,8 +28,12 @@
     
     NSString *amountString = [@" @ $" stringByAppendingString:[NSString stringWithFormat:@"%.02f", [theBatch.amount_spent doubleValue]]];
     
-    self.textLabel.text = [dateString stringByAppendingString: amountString];
+    self.dateLabel.text = dateString;
+    self.priceLabel.text = amountString;
     
+    BOOL setHidden = ([theBatch.open boolValue]) ? NO : YES;
+    
+    self.openLabel.hidden = setHidden;
 }
 
 

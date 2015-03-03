@@ -51,20 +51,45 @@
  */
 
 - (void)insertNewObject:(id)sender {
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Create Purchase Receipt"
-                                                     message:@"Enter amount spent:"
-                                                    delegate:self
-                                           cancelButtonTitle:@"Cancel"
-                                           otherButtonTitles: nil];
     
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UIAlertController *  alert = [UIAlertController alertControllerWithTitle:@"Create Purchase Receipt"
+                                                                     message:nil
+                                                              preferredStyle:UIAlertControllerStyleAlert];
     
-    UITextField *amountTextField = [alert textFieldAtIndex:0];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * textField)
+                                                 {
+                                                     textField.placeholder = @"Amount Spent";
+                                                     textField.keyboardType = UIKeyboardTypeDecimalPad;
+
+                                                 }];
     
-    amountTextField.keyboardType = UIKeyboardTypeDecimalPad;
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Ok"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //[alert dismissViewControllerAnimated:YES completion:nil];
+                                                          
+                             UITextField *amountTextField = [alert.textFields objectAtIndex:0];
+                             
+                             [_modelController createNewBatchWithPrice: [NSNumber numberWithDouble:[amountTextField.text doubleValue]]];
+                             
+                         }];
     
-    [alert addButtonWithTitle:@"Done"];
-    [alert show];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 #pragma mark - Segues
@@ -113,17 +138,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete)
         [_modelController removeBatchAtIndexPath:indexPath];
-}
-
-#pragma mark - UIAlertView Delegate
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1)
-    {
-        UITextField *amountTextField = [alertView textFieldAtIndex:0];
-            
-        [_modelController createNewBatchWithPrice: [NSNumber numberWithDouble:[amountTextField.text doubleValue]]];
-    }
 }
 
 #pragma mark - Fetched results controller Delegate

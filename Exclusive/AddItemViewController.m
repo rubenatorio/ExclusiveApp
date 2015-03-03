@@ -90,14 +90,14 @@
         {
             AddItemFormViewController *vc1 = (AddItemFormViewController *)[self.viewControllers objectAtIndex:index];
             
-            NSString *gender = [vc1.genderSegmentedControl titleForSegmentAtIndex:vc1.genderSegmentedControl.selectedSegmentIndex];
+            //NSString *gender = [vc1.genderSegmentedControl titleForSegmentAtIndex:vc1.genderSegmentedControl.selectedSegmentIndex];
             NSString *size = [vc1.sizeSegmentedControl titleForSegmentAtIndex:vc1.sizeSegmentedControl.selectedSegmentIndex];
             
             NSString *pricePaid = [vc1.priceTextField text];
             
             self.item.size = size;
             self.item.price_paid = [NSNumber numberWithDouble:[pricePaid doubleValue]];
-            self.item.category = gender;
+            self.item.category = [NSNumber numberWithInt:0];
             
             [self.embeddedNavigationController pushViewController:[self.viewControllers objectAtIndex:index + 1] animated:YES];
         }

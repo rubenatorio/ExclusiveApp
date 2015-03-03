@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "MasterViewController.h"
 #import "ShipInventoryViewController.h"
+#import "ModelController.h"
 @interface InventoryMenuViewController ()
 
 @end
@@ -29,6 +30,19 @@
         ShipInventoryViewController *shipping = (ShipInventoryViewController *) [segue destinationViewController];
         
         shipping.title = @"Shipping";
+    }
+}
+- (IBAction)testFetch:(id)sender {
+    
+    NSArray * batches = [[ModelController sharedController] registeredObjects];
+    
+    for (Batch *batch in batches)
+    {
+        NSLog(@"RBATCH: %@ ", batch.parse_id);
+        for (Item *theItem in batch.items.allObjects)
+        {
+            NSLog(@"ITEM DATA: %@", theItem.parse_id);
+        }
     }
 }
 
